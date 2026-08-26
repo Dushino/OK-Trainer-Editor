@@ -1,6 +1,6 @@
 {
   "name": "OK Trainer Editor",
-  "short_name": "OK Trainer",
+  "short_name": "OK Trainer Editor",
   "description": "Editor kartiček (flashcards) a jejich TTS výstupu pro OK Trainer",
   "lang": "cs",
   "dir": "ltr",

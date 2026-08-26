@@ -221,7 +221,13 @@ function buildSpeechSegments(text, language){
     position=match.index+match[0].length;
   }
   if(position<text.length) segments.push({text:text.slice(position),lang:language});
-  return segments.filter(segment=>segment.text);
+  const merged=[];
+  for(const segment of segments){
+    const last=merged[merged.length-1];
+    if(last&&last.lang.toLowerCase()===segment.lang.toLowerCase())last.text+=segment.text;
+    else merged.push({text:segment.text,lang:segment.lang});
+  }
+  return merged.filter(segment=>segment.text);
 }
 function speakSegments(segments, index=0){
   if(index>=segments.length){status.textContent="";return}

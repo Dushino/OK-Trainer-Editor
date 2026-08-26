@@ -512,28 +512,23 @@
           "cards": [
             {
               "front": "Jsem rušen interferencí:",
-              "back": "QRM",
-              "spellBack": true
+              "back": "QRM"
             },
             {
               "front": "Síla vašich signálů kolísá:",
-              "back": "QSB",
-              "spellBack": true
+              "back": "QSB"
             },
             {
               "front": "Jste rušen atmosférickým rušením?",
-              "back": "QRN?",
-              "spellBack": true
+              "back": "QRN?"
             },
             {
               "front": "Nemohu vás přijímat, vaše signály jsou velmi slabé:",
-              "back": "QRJ",
-              "spellBack": true
+              "back": "QRJ"
             },
             {
               "front": "Jaká je čitelnost mých značek?",
-              "back": "QRK?",
-              "spellBack": true
+              "back": "QRK?"
             }
           ]
         },
@@ -542,18 +537,15 @@
           "cards": [
             {
               "front": "Můžete zvýšit výkon?",
-              "back": "QRO?",
-              "spellBack": true
+              "back": "QRO?"
             },
             {
               "front": "Vysílejte pomaleji:",
-              "back": "QRS",
-              "spellBack": true
+              "back": "QRS"
             },
             {
               "front": "Snižte výkon:",
-              "back": "QRP",
-              "spellBack": true
+              "back": "QRP"
             }
           ]
         },
@@ -562,23 +554,19 @@
           "cards": [
             {
               "front": "Počkejte, až vás zavolám:",
-              "back": "QRX",
-              "spellBack": true
+              "back": "QRX"
             },
             {
               "front": "Přestaňte vysílat:",
-              "back": "QRT",
-              "spellBack": true
+              "back": "QRT"
             },
             {
               "front": "Nemám pro vás nic nového:",
-              "back": "QRU",
-              "spellBack": true
+              "back": "QRU"
             },
             {
               "front": "Jste zaměstnán? Je kmitočet obsazen nebo volný?",
-              "back": "QRL?",
-              "spellBack": true
+              "back": "QRL?"
             }
           ]
         },
@@ -587,18 +575,15 @@
           "cards": [
             {
               "front": "Volá vás:",
-              "back": "QRZ",
-              "spellBack": true
+              "back": "QRZ"
             },
             {
               "front": "Jste připraven?",
-              "back": "QRV?",
-              "spellBack": true
+              "back": "QRV?"
             },
             {
               "front": "Můžete mě poslouchat mezi svými značkami?",
-              "back": "QSK?",
-              "spellBack": true
+              "back": "QSK?"
             }
           ]
         },
@@ -607,33 +592,27 @@
           "cards": [
             {
               "front": "Potvrzuji příjem:",
-              "back": "QSL",
-              "spellBack": true
+              "back": "QSL"
             },
             {
               "front": "Moje poloha je:",
-              "back": "QTH",
-              "spellBack": true
+              "back": "QTH"
             },
             {
               "front": "Mohu pracovat s … přímo (prostřednictvím)?",
-              "back": "QSO?",
-              "spellBack": true
+              "back": "QSO?"
             },
             {
               "front": "Mám přejít k vysílání na jiný kmitočet?",
-              "back": "QSY?",
-              "spellBack": true
+              "back": "QSY?"
             },
             {
               "front": "Vysílejte řadu V:",
-              "back": "QSV",
-              "spellBack": true
+              "back": "QSV"
             },
             {
               "front": "Slovo dvakrát:",
-              "back": "QSZ",
-              "spellBack": true
+              "back": "QSZ"
             }
           ]
         },
@@ -642,28 +621,23 @@
           "cards": [
             {
               "front": "dobré odpoledne:",
-              "back": "GA",
-              "spellBack": true
+              "back": "GA"
             },
             {
               "front": "dobré ráno:",
-              "back": "GM",
-              "spellBack": true
+              "back": "GM"
             },
             {
               "front": "dobrý večer:",
-              "back": "GE",
-              "spellBack": true
+              "back": "GE"
             },
             {
               "front": "dobrý den:",
-              "back": "GD",
-              "spellBack": true
+              "back": "GD"
             },
             {
               "front": "dobrou noc:",
-              "back": "GN",
-              "spellBack": true
+              "back": "GN"
             }
           ]
         },
@@ -672,33 +646,27 @@
           "cards": [
             {
               "front": "smích:",
-              "back": "HI",
-              "spellBack": true
+              "back": "HI"
             },
             {
               "front": "sbohem:",
-              "back": "GB",
-              "spellBack": true
+              "back": "GB"
             },
             {
               "front": "znovu:",
-              "back": "CUAGN",
-              "spellBack": true
+              "back": "CUAGN"
             },
             {
               "front": "srdečný pozdrav:",
-              "back": "73",
-              "spellBack": true
+              "back": "73"
             },
             {
               "front": "polibek:",
-              "back": "88",
-              "spellBack": true
+              "back": "88"
             },
             {
               "front": "později na shledanou:",
-              "back": "CUL",
-              "spellBack": true
+              "back": "CUL"
             }
           ]
         },
@@ -707,28 +675,23 @@
           "cards": [
             {
               "front": "děkuji:",
-              "back": "TNX, TKS",
-              "spellBack": true
+              "back": "TNX, TKS"
             },
             {
               "front": "štěstí, hodně štěstí:",
-              "back": "GL",
-              "spellBack": true
+              "back": "GL"
             },
             {
               "front": "rád, potěšen:",
-              "back": "GLD",
-              "spellBack": true
+              "back": "GLD"
             },
             {
               "front": "prosím:",
-              "back": "PSE",
-              "spellBack": true
+              "back": "PSE"
             },
             {
               "front": "lituji, bohužel",
-              "back": "SRI, SRY",
-              "spellBack": true
+              "back": "SRI, SRY"
             }
           ]
         },
@@ -737,23 +700,19 @@
           "cards": [
             {
               "front": "pěkný, výborný:",
-              "back": "FB",
-              "spellBack": true
+              "back": "FB"
             },
             {
               "front": "velmi pěkný:",
-              "back": "UFB",
-              "spellBack": true
+              "back": "UFB"
             },
             {
               "front": "doufat:",
-              "back": "HPE",
-              "spellBack": true
+              "back": "HPE"
             },
             {
               "front": "šťastný:",
-              "back": "HPY",
-              "spellBack": true
+              "back": "HPY"
             },
             {
               "front": "jistě, určitě:",
@@ -766,8 +725,7 @@
           "cards": [
             {
               "front": "čekejte:",
-              "back": "AS",
-              "spellBack": true
+              "back": "AS"
             },
             {
               "front": "domluvené spojení:",
@@ -775,23 +733,19 @@
             },
             {
               "front": "vysílejte:",
-              "back": "K",
-              "spellBack": true
+              "back": "K"
             },
             {
               "front": "všeobecná výzva:",
-              "back": "CQ",
-              "spellBack": true
+              "back": "CQ"
             },
             {
               "front": "pokračujte:",
-              "back": "GA",
-              "spellBack": true
+              "back": "GA"
             },
             {
               "front": "začátek relace:",
-              "back": "KA",
-              "spellBack": true
+              "back": "KA"
             }
           ]
         },
@@ -800,13 +754,11 @@
           "cards": [
             {
               "front": "konec vysílání:",
-              "back": "SK",
-              "spellBack": true
+              "back": "SK"
             },
             {
               "front": "uzavírám stanici:",
-              "back": "CL",
-              "spellBack": true
+              "back": "CL"
             },
             {
               "front": "pokus:",
@@ -814,18 +766,15 @@
             },
             {
               "front": "konec relace:",
-              "back": "AR",
-              "spellBack": true
+              "back": "AR"
             },
             {
               "front": "přerušit:",
-              "back": "BK",
-              "spellBack": true
+              "back": "BK"
             },
             {
               "front": "přecházím na poslech pro určitou stanici:",
-              "back": "KN",
-              "spellBack": true
+              "back": "KN"
             }
           ]
         },
@@ -834,8 +783,7 @@
           "cards": [
             {
               "front": "report:",
-              "back": "RPRT, RST",
-              "spellBack": true
+              "back": "RPRT, RST"
             },
             {
               "front": "staniční deník:",
@@ -843,23 +791,19 @@
             },
             {
               "front": "správně přijato:",
-              "back": "R",
-              "spellBack": true
+              "back": "R"
             },
             {
               "front": "staniční lístek nezašlu:",
-              "back": "QSLN",
-              "spellBack": true
+              "back": "QSLN"
             },
             {
               "front": "potvrdit:",
-              "back": "CFM",
-              "spellBack": true
+              "back": "CFM"
             },
             {
               "front": "přijal, přijato:",
-              "back": "RCVD",
-              "spellBack": true
+              "back": "RCVD"
             }
           ]
         },
@@ -868,28 +812,23 @@
           "cards": [
             {
               "front": "rušení rozhlasu:",
-              "back": "BCI",
-              "spellBack": true
+              "back": "BCI"
             },
             {
               "front": "podmínky pro spojení:",
-              "back": "CONDS",
-              "spellBack": true
+              "back": "CONDS"
             },
             {
               "front": "rušení televize:",
-              "back": "TVI",
-              "spellBack": true
+              "back": "TVI"
             },
             {
               "front": "podmínky pro dálkové spojení:",
-              "back": "CONDX",
-              "spellBack": true
+              "back": "CONDX"
             },
             {
               "front": "rušení rádiového kmitočtu:",
-              "back": "RFI",
-              "spellBack": true
+              "back": "RFI"
             }
           ]
         },
@@ -898,8 +837,7 @@
           "cards": [
             {
               "front": "přijímač:",
-              "back": "RX",
-              "spellBack": true
+              "back": "RX"
             },
             {
               "front": "zařízení:",
@@ -907,18 +845,15 @@
             },
             {
               "front": "vysílač:",
-              "back": "TX",
-              "spellBack": true
+              "back": "TX"
             },
             {
               "front": "transceiver:",
-              "back": "TRX",
-              "spellBack": true
+              "back": "TRX"
             },
             {
               "front": "proměnný oscilátor:",
-              "back": "VFO",
-              "spellBack": true
+              "back": "VFO"
             }
           ]
         },
@@ -927,33 +862,27 @@
           "cards": [
             {
               "front": "anténa:",
-              "back": "AER, ANT",
-              "spellBack": true
+              "back": "AER, ANT"
             },
             {
               "front": "činitel stojatých vln:",
-              "back": "PSV, SWR",
-              "spellBack": true
+              "back": "PSV, SWR"
             },
             {
               "front": "koncový stupeň:",
-              "back": "PA",
-              "spellBack": true
+              "back": "PA"
             },
             {
               "front": "špičkový výkon:",
-              "back": "PEP",
-              "spellBack": true
+              "back": "PEP"
             },
             {
               "front": "výkon:",
-              "back": "PWR",
-              "spellBack": true
+              "back": "PWR"
             },
             {
               "front": "země, uzemnění:",
-              "back": "GND",
-              "spellBack": true
+              "back": "GND"
             }
           ]
         },
@@ -962,18 +891,15 @@
           "cards": [
             {
               "front": "automatické řízení úrovně:",
-              "back": "ALC",
-              "spellBack": true
+              "back": "ALC"
             },
             {
               "front": "automatické řízení zisku:",
-              "back": "AGC",
-              "spellBack": true
+              "back": "AGC"
             },
             {
               "front": "automatické řízení hlasitosti:",
-              "back": "AVC",
-              "spellBack": true
+              "back": "AVC"
             }
           ]
         },
@@ -982,18 +908,15 @@
           "cards": [
             {
               "front": "amplitudová modulace:",
-              "back": "AM",
-              "spellBack": true
+              "back": "AM"
             },
             {
               "front": "kmitočtová modulace:",
-              "back": "FM",
-              "spellBack": true
+              "back": "FM"
             },
             {
               "front": "telegrafie, netlumená vlna:",
-              "back": "CW",
-              "spellBack": true
+              "back": "CW"
             }
           ]
         },
@@ -1002,13 +925,11 @@
           "cards": [
             {
               "front": "jedno postranní pásmo:",
-              "back": "SSB",
-              "spellBack": true
+              "back": "SSB"
             },
             {
               "front": "spodní postranní pásmo:",
-              "back": "LSB",
-              "spellBack": true
+              "back": "LSB"
             },
             {
               "front": "fonie:",
@@ -1016,8 +937,7 @@
             },
             {
               "front": "horní postranní pásmo:",
-              "back": "USB",
-              "spellBack": true
+              "back": "USB"
             }
           ]
         },
@@ -1063,8 +983,7 @@
             },
             {
               "front": "klíč:",
-              "back": "KY",
-              "spellBack": true
+              "back": "KY"
             }
           ]
         },
@@ -1081,8 +1000,7 @@
             },
             {
               "front": "přítel:",
-              "back": "OM",
-              "spellBack": true
+              "back": "OM"
             },
             {
               "front": "operátor:",
@@ -1095,18 +1013,15 @@
           "cards": [
             {
               "front": "milý, drahý:",
-              "back": "DR",
-              "spellBack": true
+              "back": "DR"
             },
             {
               "front": "manželka:",
-              "back": "XYL",
-              "spellBack": true
+              "back": "XYL"
             },
             {
               "front": "slečna, přítelkyně:",
-              "back": "YL",
-              "spellBack": true
+              "back": "YL"
             }
           ]
         },
@@ -1127,8 +1042,7 @@
             },
             {
               "front": "počasí:",
-              "back": "WX",
-              "spellBack": true
+              "back": "WX"
             },
             {
               "front": "oblačno:",
@@ -1141,28 +1055,23 @@
           "cards": [
             {
               "front": "já:",
-              "back": "I",
-              "spellBack": true
+              "back": "I"
             },
             {
               "front": "váš, tvůj:",
-              "back": "UR",
-              "spellBack": true
+              "back": "UR"
             },
             {
               "front": "můj:",
-              "back": "MY",
-              "spellBack": true
+              "back": "MY"
             },
             {
               "front": "ne:",
-              "back": "NO",
-              "spellBack": true
+              "back": "NO"
             },
             {
               "front": "velmi:",
-              "back": "VY",
-              "spellBack": true
+              "back": "VY"
             }
           ]
         },
@@ -1171,22 +1080,19 @@
           "cards": [
             {
               "front": "k:",
-              "back": "TO",
-              "spellBack": true
+              "back": "TO"
             },
             {
               "front": "z, ze:",
-              "back": "DE",
-              "spellBack": true
+              "back": "DE"
             },
             {
               "front": "za:",
-              "back": "FER",
-              "spellBack": true
+              "back": "FER"
             },
             {
               "front": "přes, prostřednictvím:",
-              "back": "via"              
+              "back": "via"
             },
             {
               "front": "a:",
@@ -1216,23 +1122,19 @@
           "cards": [
             {
               "front": "zde, tady:",
-              "back": "HR",
-              "spellBack": true
+              "back": "HR"
             },
             {
               "front": "dolů:",
-              "back": "DWN",
-              "spellBack": true
+              "back": "DWN"
             },
             {
               "front": "blízko, u:",
-              "back": "NR, near",              
-              "spellBack": true
+              "back": "NR, near"
             },
             {
               "front": "nahoru:",
-              "back": "UP",
-              "spellBack": true
+              "back": "UP"
             }
           ]
         },
@@ -1241,18 +1143,15 @@
           "cards": [
             {
               "front": "zavolání, značka:",
-              "back": "CALL",              
-              "spellBack": true
+              "back": "CALL"
             },
             {
               "front": "pracoval, pracující:",
-              "back": "WKD",
-              "spellBack": true
+              "back": "WKD"
             },
             {
               "front": "asi, přibližně:",
-              "back": "ABT",
-              "spellBack": true
+              "back": "ABT"
             },
             {
               "front": "poslat, zaslat:",
@@ -1265,8 +1164,7 @@
           "cards": [
             {
               "front": "střídavý proud:",
-              "back": "AC",
-              "spellBack": true
+              "back": "AC"
             },
             {
               "front": "decibel:",
@@ -1274,13 +1172,11 @@
             },
             {
               "front": "stejnosměrný proud:",
-              "back": "DC",
-              "spellBack": true
+              "back": "DC"
             },
             {
               "front": "metr:",
-              "back": "MTR",
-              "spellBack": true
+              "back": "MTR"
             }
           ]
         },
@@ -1293,18 +1189,15 @@
             },
             {
               "front": "dlouhý drát, dlouhé vlny:",
-              "back": "LW",
-              "spellBack": true
+              "back": "LW"
             },
             {
               "front": "elektronky:",
-              "back": "TBS",
-              "spellBack": true
+              "back": "TBS"
             },
             {
               "front": "prvek, element:",
-              "back": "EL",
-              "spellBack": true
+              "back": "EL"
             }
           ]
         },
@@ -1313,28 +1206,23 @@
           "cards": [
             {
               "front": "stanice:",
-              "back": "STN",
-              "spellBack": true
+              "back": "STN"
             },
             {
               "front": "Mezinárodní telekomunikační unie:",
-              "back": "ITU, UIT",
-              "spellBack": true
+              "back": "ITU, UIT"
             },
             {
               "front": "Mezinárodní radioamatérská unie:",
-              "back": "IARU",
-              "spellBack": true
+              "back": "IARU"
             },
             {
               "front": "koncesovaný:",
-              "back": "LIS",
-              "spellBack": true
+              "back": "LIS"
             },
             {
               "front": "nekoncesovaný:",
-              "back": "UNLIS",
-              "spellBack": true
+              "back": "UNLIS"
             }
           ]
         },
@@ -1347,8 +1235,7 @@
             },
             {
               "front": "obálka s adresou a známkou:",
-              "back": "SASE",
-              "spellBack": true
+              "back": "SASE"
             },
             {
               "front": "radioamatérská družice:",
@@ -1356,8 +1243,7 @@
             },
             {
               "front": "krátkovlnný posluchač:",
-              "back": "SWL",
-              "spellBack": true
+              "back": "SWL"
             },
             {
               "front": "síť:",
@@ -1370,23 +1256,19 @@
           "cards": [
             {
               "front": "opakovat:",
-              "back": "RPT",
-              "spellBack": true
+              "back": "RPT"
             },
             {
               "front": "opět, zase:",
-              "back": "AGN",
-              "spellBack": true
+              "back": "AGN"
             },
             {
               "front": "světový čas koordinovaný:",
-              "back": "UTC",
-              "spellBack": true
+              "back": "UTC"
             },
             {
               "front": "brzy:",
-              "back": "SN",
-              "spellBack": true
+              "back": "SN"
             }
           ]
         },
@@ -1399,8 +1281,7 @@
             },
             {
               "front": "jak?",
-              "back": "HW?",
-              "spellBack": true
+              "back": "HW?"
             },
             {
               "front": "signály:",
@@ -1417,13 +1298,11 @@
           "cards": [
             {
               "front": "slyšen, slyšeno:",
-              "back": "HRD",
-              "spellBack": true
+              "back": "HRD"
             },
             {
               "front": "dálkové spojení:",
-              "back": "DX",
-              "spellBack": true
+              "back": "DX"
             },
             {
               "front": "v pořádku:",
@@ -1431,8 +1310,7 @@
             },
             {
               "front": "zapsat, porozumět:",
-              "back": "CPI, CPY",
-              "spellBack": true
+              "back": "CPI, CPY"
             }
           ]
         },
@@ -1441,13 +1319,11 @@
           "cards": [
             {
               "front": "watty:",
-              "back": "WTTS",
-              "spellBack": true
+              "back": "WTTS"
             },
             {
               "front": "zmiz!",
-              "back": "99",
-              "spellBack": true
+              "back": "99"
             },
             {
               "front": "Vánoce:",
@@ -1460,33 +1336,27 @@
           "cards": [
             {
               "front": "Česká republika:",
-              "back": "OL, OK",
-              "spellBack": true
+              "back": "OL, OK"
             },
             {
               "front": "Slovensko:",
-              "back": "OM",
-              "spellBack": true
+              "back": "OM"
             },
             {
               "front": "Rakousko:",
-              "back": "OE",
-              "spellBack": true
+              "back": "OE"
             },
             {
               "front": "Německo:",
-              "back": "DA–DR",
-              "spellBack": true
+              "back": "DA–DR"
             },
             {
               "front": "Polsko:",
-              "back": "HF, SN-SR, 3Z",
-              "spellBack": true
+              "back": "HF, SN-SR, 3Z"
             },
             {
               "front": "Maďarsko:",
-              "back": "HA, HG",
-              "spellBack": true
+              "back": "HA, HG"
             }
           ]
         },
@@ -1495,28 +1365,23 @@
           "cards": [
             {
               "front": "Švédsko:",
-              "back": "SA-SM, 7S, 8S",
-              "spellBack": true
+              "back": "SA-SM, 7S, 8S"
             },
             {
               "front": "Finsko:",
-              "back": "OF-OJ",
-              "spellBack": true
+              "back": "OF-OJ"
             },
             {
               "front": "Dánsko:",
-              "back": "OU-OZ, XP, 5P, 5Q",
-              "spellBack": true
+              "back": "OU-OZ, XP, 5P, 5Q"
             },
             {
               "front": "Norsko:",
-              "back": "LA-LN, 3Y",
-              "spellBack": true
+              "back": "LA-LN, 3Y"
             },
             {
               "front": "Island:",
-              "back": "TF",
-              "spellBack": true
+              "back": "TF"
             }
           ]
         },
@@ -1525,33 +1390,27 @@
           "cards": [
             {
               "front": "Špicberky:",
-              "back": "JW",
-              "spellBack": true
+              "back": "JW"
             },
             {
               "front": "Jan Mayen:",
-              "back": "JX",
-              "spellBack": true
+              "back": "JX"
             },
             {
               "front": "Alandské ostrovy:",
-              "back": "OH0",
-              "spellBack": true
+              "back": "OH0"
             },
             {
               "front": "Market Reef:",
-              "back": "OJ0",
-              "spellBack": true
+              "back": "OJ0"
             },
             {
               "front": "Grónsko:",
-              "back": "OX",
-              "spellBack": true
+              "back": "OX"
             },
             {
               "front": "Faerské ostrovy:",
-              "back": "OY",
-              "spellBack": true
+              "back": "OY"
             }
           ]
         },
@@ -1560,23 +1419,19 @@
           "cards": [
             {
               "front": "Anglie:",
-              "back": "G, GX",
-              "spellBack": true
+              "back": "G, GX"
             },
             {
               "front": "Skotsko:",
-              "back": "GM, GS",
-              "spellBack": true
+              "back": "GM, GS"
             },
             {
               "front": "Wales:",
-              "back": "GW, GC, MW",
-              "spellBack": true
+              "back": "GW, GC, MW"
             },
             {
               "front": "Severní Irsko:",
-              "back": "GI, GN, MI",
-              "spellBack": true
+              "back": "GI, GN, MI"
             }
           ]
         },
@@ -1585,23 +1440,19 @@
           "cards": [
             {
               "front": "Ostrov Man:",
-              "back": "GD, GT, MD",
-              "spellBack": true
+              "back": "GD, GT, MD"
             },
             {
               "front": "Jersey:",
-              "back": "GJ, GH, MJ",
-              "spellBack": true
+              "back": "GJ, GH, MJ"
             },
             {
               "front": "Guernsey:",
-              "back": "GU, GP, MU",
-              "spellBack": true
+              "back": "GU, GP, MU"
             },
             {
               "front": "Irsko:",
-              "back": "EI, EJ",
-              "spellBack": true
+              "back": "EI, EJ"
             }
           ]
         },
@@ -1610,23 +1461,19 @@
           "cards": [
             {
               "front": "Španělsko:",
-              "back": "EA-EH",
-              "spellBack": true
+              "back": "EA-EH"
             },
             {
               "front": "Kanárské ostrovy:",
-              "back": "EA8-EH8",
-              "spellBack": true
+              "back": "EA8-EH8"
             },
             {
               "front": "Baleáry:",
-              "back": "EA6-EH6",
-              "spellBack": true
+              "back": "EA6-EH6"
             },
             {
               "front": "Ceuta a Melilla:",
-              "back": "EA9-EH9",
-              "spellBack": true
+              "back": "EA9-EH9"
             }
           ]
         },
@@ -1635,18 +1482,15 @@
           "cards": [
             {
               "front": "Portugalsko:",
-              "back": "CQ-CU",
-              "spellBack": true
+              "back": "CQ-CU"
             },
             {
               "front": "Azory:",
-              "back": "CQ2, CR2, CS2, CT2, CU2",
-              "spellBack": true
+              "back": "CQ2, CR2, CS2, CT2, CU2"
             },
             {
               "front": "Andorra:",
-              "back": "C3",
-              "spellBack": true
+              "back": "C3"
             }
           ]
         },
@@ -1655,33 +1499,27 @@
           "cards": [
             {
               "front": "Slovinsko:",
-              "back": "S5",
-              "spellBack": true
+              "back": "S5"
             },
             {
               "front": "Chorvatsko:",
-              "back": "9A",
-              "spellBack": true
+              "back": "9A"
             },
             {
               "front": "Bosna a Hercegovina:",
-              "back": "E7",
-              "spellBack": true
+              "back": "E7"
             },
             {
               "front": "Srbsko:",
-              "back": "YT-YU",
-              "spellBack": true
+              "back": "YT-YU"
             },
             {
               "front": "Černá Hora:",
-              "back": "4O",
-              "spellBack": true
+              "back": "4O"
             },
             {
               "front": "Makedonie:",
-              "back": "Z3",
-              "spellBack": true
+              "back": "Z3"
             }
           ]
         },
@@ -1690,33 +1528,27 @@
           "cards": [
             {
               "front": "Řecko:",
-              "back": "SV-SZ, J4",
-              "spellBack": true
+              "back": "SV-SZ, J4"
             },
             {
               "front": "Dodekanésy:",
-              "back": "SV5-SZ5",
-              "spellBack": true
+              "back": "SV5-SZ5"
             },
             {
               "front": "Kréta:",
-              "back": "SV9-SZ9",
-              "spellBack": true
+              "back": "SV9-SZ9"
             },
             {
               "front": "Albánie:",
-              "back": "ZA",
-              "spellBack": true
+              "back": "ZA"
             },
             {
               "front": "Bulharsko:",
-              "back": "LZ",
-              "spellBack": true
+              "back": "LZ"
             },
             {
               "front": "Rumunsko:",
-              "back": "YO-YR",
-              "spellBack": true
+              "back": "YO-YR"
             }
           ]
         },
@@ -1725,33 +1557,27 @@
           "cards": [
             {
               "front": "Rusko:",
-              "back": "UA-UI",
-              "spellBack": true
+              "back": "UA-UI"
             },
             {
               "front": "Ukrajina:",
-              "back": "EM-EO, UR-UZ",
-              "spellBack": true
+              "back": "EM-EO, UR-UZ"
             },
             {
               "front": "Bělorusko:",
-              "back": "EU-EW",
-              "spellBack": true
+              "back": "EU-EW"
             },
             {
               "front": "Estonsko:",
-              "back": "ES",
-              "spellBack": true
+              "back": "ES"
             },
             {
               "front": "Lotyšsko:",
-              "back": "YL",
-              "spellBack": true
+              "back": "YL"
             },
             {
               "front": "Litva:",
-              "back": "LY",
-              "spellBack": true
+              "back": "LY"
             }
           ]
         },
@@ -1760,18 +1586,15 @@
           "cards": [
             {
               "front": "Moldavsko:",
-              "back": "ER",
-              "spellBack": true
+              "back": "ER"
             },
             {
               "front": "Arménie:",
-              "back": "EK",
-              "spellBack": true
+              "back": "EK"
             },
             {
               "front": "Gruzie:",
-              "back": "4L",
-              "spellBack": true
+              "back": "4L"
             }
           ]
         },
@@ -1780,28 +1603,23 @@
           "cards": [
             {
               "front": "Nizozemsko:",
-              "back": "PA-PI",
-              "spellBack": true
+              "back": "PA-PI"
             },
             {
               "front": "Švýcarsko:",
-              "back": "HB, HE",
-              "spellBack": true
+              "back": "HB, HE"
             },
             {
               "front": "Lichtenštejnsko:",
-              "back": "HB0",
-              "spellBack": true
+              "back": "HB0"
             },
             {
               "front": "Belgie:",
-              "back": "ON-OT",
-              "spellBack": true
+              "back": "ON-OT"
             },
             {
               "front": "Lucembursko:",
-              "back": "LX",
-              "spellBack": true
+              "back": "LX"
             }
           ]
         },
@@ -1810,33 +1628,27 @@
           "cards": [
             {
               "front": "Francie:",
-              "back": "F-FZ, F1-F0, HW, TH, TK, TM, TO, TV",
-              "spellBack": true
+              "back": "F-FZ, F1-F0, HW, TH, TK, TM, TO, TV"
             },
             {
               "front": "Korsika:",
-              "back": "TK",
-              "spellBack": true
+              "back": "TK"
             },
             {
               "front": "Itálie:",
-              "back": "I, IA-IZ",
-              "spellBack": true
+              "back": "I, IA-IZ"
             },
             {
               "front": "Sardinie:",
-              "back": "IS0, IM0",
-              "spellBack": true
+              "back": "IS0, IM0"
             },
             {
               "front": "Monako:",
-              "back": "3A",
-              "spellBack": true
+              "back": "3A"
             },
             {
               "front": "San Marino:",
-              "back": "T7",
-              "spellBack": true
+              "back": "T7"
             }
           ]
         },
@@ -1845,23 +1657,19 @@
           "cards": [
             {
               "front": "Vatikán:",
-              "back": "HV",
-              "spellBack": true
+              "back": "HV"
             },
             {
               "front": "Malta:",
-              "back": "9H",
-              "spellBack": true
+              "back": "9H"
             },
             {
               "front": "Turecko:",
-              "back": "TA-TC, YM",
-              "spellBack": true
+              "back": "TA-TC, YM"
             },
             {
               "front": "Jihoafrická republika:",
-              "back": "ZR-ZU",
-              "spellBack": true
+              "back": "ZR-ZU"
             }
           ]
         },
@@ -1870,33 +1678,27 @@
           "cards": [
             {
               "front": "Spojené státy americké:",
-              "back": "K, N, W, AA-AK",
-              "spellBack": true
+              "back": "K, N, W, AA-AK"
             },
             {
               "front": "Kanada:",
-              "back": "CF-CK, CY-CZ, VA-VE, VO, VX, VY, XJ-XO",
-              "spellBack": true
+              "back": "CF-CK, CY-CZ, VA-VE, VO, VX, VY, XJ-XO"
             },
             {
               "front": "Brazílie:",
-              "back": "PP-PY",
-              "spellBack": true
+              "back": "PP-PY"
             },
             {
               "front": "Argentina:",
-              "back": "LO-LW",
-              "spellBack": true
+              "back": "LO-LW"
             },
             {
               "front": "Mexiko:",
-              "back": "XE-XI",
-              "spellBack": true
+              "back": "XE-XI"
             },
             {
               "front": "Kuba:",
-              "back": "CL, CM, CO, T4",
-              "spellBack": true
+              "back": "CL, CM, CO, T4"
             }
           ]
         },
@@ -1905,28 +1707,23 @@
           "cards": [
             {
               "front": "Japonsko:",
-              "back": "JA-JS, 7J-7N, 8J-8N",
-              "spellBack": true
+              "back": "JA-JS, 7J-7N, 8J-8N"
             },
             {
               "front": "Čína:",
-              "back": "BA-BZ (vč. B1-B0)",
-              "spellBack": true
+              "back": "BA-BZ (vč. B1-B0)"
             },
             {
               "front": "Tchaj-wan:",
-              "back": "BV",
-              "spellBack": true
+              "back": "BV"
             },
             {
               "front": "Jižní Korea:",
-              "back": "DS-DT, D7-D9, HL",
-              "spellBack": true
+              "back": "DS-DT, D7-D9, HL"
             },
             {
               "front": "Severní Korea:",
-              "back": "P5-P9",
-              "spellBack": true
+              "back": "P5-P9"
             }
           ]
         },
@@ -1935,33 +1732,27 @@
           "cards": [
             {
               "front": "Thajsko:",
-              "back": "HS",
-              "spellBack": true
+              "back": "HS"
             },
             {
               "front": "Saúdská Arábie:",
-              "back": "HZ, 7Z",
-              "spellBack": true
+              "back": "HZ, 7Z"
             },
             {
               "front": "Indie:",
-              "back": "VU",
-              "spellBack": true
+              "back": "VU"
             },
             {
               "front": "Izrael:",
-              "back": "4X, 4Z",
-              "spellBack": true
+              "back": "4X, 4Z"
             },
             {
               "front": "Austrálie:",
-              "back": "VK",
-              "spellBack": true
+              "back": "VK"
             },
             {
               "front": "Nový Zéland:",
-              "back": "ZL-ZM",
-              "spellBack": true
+              "back": "ZL-ZM"
             }
           ]
         },
@@ -2575,7 +2366,6 @@
             },
             {
               "front": "S-metr slouží:",
-              "speakFront": "S metr slouží",
               "back": "k určování síly přijímaných signálů"
             },
             {

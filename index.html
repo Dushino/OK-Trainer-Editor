@@ -14,7 +14,7 @@
 <style>
   :root{--chassis:#12181a;--panel:#1b2426;--panel-2:#212c2e;--border:#2a3436;--text:#eae6d9;--muted:#8b9a95;--accent:#ffb020;--green:#6fe3a0;--sans:-apple-system,"Segoe UI",Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
   @media(prefers-color-scheme:light){:root{--chassis:#eee8d9;--panel:#fff;--panel-2:#efe8d6;--border:#d9d2bd;--text:#2b2a25;--muted:#6b6558;--accent:#a85d00;--green:#1f8a5c}}
-  *{box-sizing:border-box}html,body{margin:0;min-height:100%}body{background:var(--chassis);color:var(--text);font-family:var(--sans);padding:24px 16px 48px;display:flex;justify-content:center}.wrap{width:100%;max-width:640px}header{text-align:center;margin:8px 0 32px}h1{font-family:Georgia,"Times New Roman",serif;font-size:28px;letter-spacing:2px;color:var(--accent);margin:0}.field{margin:0 0 22px}label{display:block;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.3px;margin:0 0 7px}input,textarea,select{width:100%;font:15px var(--sans);color:var(--text);background:var(--panel);border:1px solid var(--border);border-radius:8px;outline:none}input,select{height:44px;padding:0 12px}textarea{min-height:110px;padding:12px;resize:vertical;line-height:1.45}input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent)}.control-row{display:flex;gap:6px}.control-row select{flex:1;min-width:0}button{width:44px;height:44px;flex:0 0 44px;border:1px solid var(--border);border-radius:8px;background:var(--panel);color:var(--text);font-size:19px;cursor:pointer}button:hover{background:var(--panel-2)}button:active{transform:translateY(1px)}button:disabled{opacity:.4;cursor:default}.test-row{display:flex;align-items:flex-start;gap:8px}.test-row textarea{flex:1}.speak-btn{color:var(--green)}.status{min-height:18px;margin:4px 0 0;color:var(--muted);font-size:12px}.hidden{display:none}.nav-row{display:flex;gap:8px}.nav-row button{width:auto;flex:1;font-size:15px;font-family:var(--sans)}.position{text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px;margin:0 0 14px}fieldset{border:1px solid var(--border);border-radius:8px;padding:14px;margin:0 0 22px}legend{padding:0 6px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.3px}.divider{border:none;border-top:1px solid var(--border);margin:0 0 22px}
+  *{box-sizing:border-box}html,body{margin:0;min-height:100%}body{background:var(--chassis);color:var(--text);font-family:var(--sans);padding:24px 16px 48px;display:flex;justify-content:center}.wrap{width:100%;max-width:640px}header{text-align:center;margin:8px 0 32px}h1{font-family:Georgia,"Times New Roman",serif;font-size:28px;letter-spacing:2px;color:var(--accent);margin:0}.field{margin:0 0 22px}label{display:block;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.3px;margin:0 0 7px}input,textarea,select{width:100%;font:15px var(--sans);color:var(--text);background:var(--panel);border:1px solid var(--border);border-radius:8px;outline:none}input,select{height:44px;padding:0 12px}textarea{min-height:110px;padding:12px;resize:vertical;line-height:1.45}input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent)}.control-row{display:flex;gap:6px}.control-row select{flex:1;min-width:0}button{width:44px;height:44px;flex:0 0 44px;border:1px solid var(--border);border-radius:8px;background:var(--panel);color:var(--text);font-size:19px;cursor:pointer}button:hover{background:var(--panel-2)}button:active{transform:translateY(1px)}button:disabled{opacity:.4;cursor:default}.test-row{display:flex;align-items:flex-start;gap:8px}.test-row textarea{flex:1}.test-row input{flex:1;margin:0}.speak-btn{color:var(--green)}.status{min-height:18px;margin:4px 0 0;color:var(--muted);font-size:12px}.hidden{display:none}.nav-row{display:flex;gap:8px}.nav-row button{width:auto;flex:1;font-size:15px;font-family:var(--sans)}.position{text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px;margin:0 0 14px}fieldset{border:1px solid var(--border);border-radius:8px;padding:14px;margin:0 0 22px}legend{padding:0 6px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.3px}.divider{border:none;border-top:1px solid var(--border);margin:0 0 22px}
 </style>
 </head>
 <body>
@@ -35,8 +35,22 @@
     <input id="deckShortName" type="text" spellcheck="false">
   </div>
   <div class="field">
+    <label for="deckShortNameTts">Krátký název — text pro TTS (nepovinné):</label>
+    <div class="test-row">
+      <input id="deckShortNameTts" type="text" placeholder="Prázdné = použije se krátký název výše" spellcheck="false">
+      <button id="speakDeckShortName" class="speak-btn" type="button" title="Přehrát krátký název" aria-label="Přehrát krátký název">🔊</button>
+    </div>
+  </div>
+  <div class="field">
     <label for="deckLongName">Popis balíčku:</label>
     <input id="deckLongName" type="text" spellcheck="false">
+  </div>
+  <div class="field">
+    <label for="deckLongNameTts">Popis — text pro TTS (nepovinné):</label>
+    <div class="test-row">
+      <input id="deckLongNameTts" type="text" placeholder="Prázdné = použije se popis výše" spellcheck="false">
+      <button id="speakDeckLongName" class="speak-btn" type="button" title="Přehrát popis" aria-label="Přehrát popis">🔊</button>
+    </div>
   </div>
   <div class="field">
     <label for="deckLanguage">Jazyk balíčku (např. cs-CZ):</label>
@@ -56,6 +70,17 @@
     <label for="areaNameInput">Název oblasti:</label>
     <input id="areaNameInput" type="text" spellcheck="false">
   </div>
+  <div class="field">
+    <label for="areaNameTtsInput">Název oblasti — text pro TTS (nepovinné):</label>
+    <div class="test-row">
+      <input id="areaNameTtsInput" type="text" placeholder="Prázdné = použije se název výše" spellcheck="false">
+      <button id="speakAreaName" class="speak-btn" type="button" title="Přehrát název oblasti" aria-label="Přehrát název oblasti">🔊</button>
+    </div>
+  </div>
+  <div class="field">
+    <label for="maxErrorsInput">Max. počet chyb v oblasti (nepovinné):</label>
+    <input id="maxErrorsInput" type="number" min="0" step="1">
+  </div>
   <hr class="divider">
 
   <div class="field">
@@ -69,6 +94,13 @@
   <div class="field">
     <label for="subareaNameInput">Název podoblasti:</label>
     <input id="subareaNameInput" type="text" spellcheck="false">
+  </div>
+  <div class="field">
+    <label for="subareaNameTtsInput">Název podoblasti — text pro TTS (nepovinné):</label>
+    <div class="test-row">
+      <input id="subareaNameTtsInput" type="text" placeholder="Prázdné = použije se název výše" spellcheck="false">
+      <button id="speakSubareaName" class="speak-btn" type="button" title="Přehrát název podoblasti" aria-label="Přehrát název podoblasti">🔊</button>
+    </div>
   </div>
   <hr class="divider">
 
@@ -126,14 +158,23 @@ const BUNDLED_FLASHCARD_FILES=["Flashcards/Český test ČTÚ pro HAREC A.json",
 
 const deckSelect=document.getElementById("deckSelect");
 const deckShortNameInput=document.getElementById("deckShortName");
+const deckShortNameTtsInput=document.getElementById("deckShortNameTts");
+const speakDeckShortNameBtn=document.getElementById("speakDeckShortName");
 const deckLongNameInput=document.getElementById("deckLongName");
+const deckLongNameTtsInput=document.getElementById("deckLongNameTts");
+const speakDeckLongNameBtn=document.getElementById("speakDeckLongName");
 const deckLanguageInput=document.getElementById("deckLanguage");
 const areaSelect=document.getElementById("areaSelect");
 const areaNameInput=document.getElementById("areaNameInput");
+const areaNameTtsInput=document.getElementById("areaNameTtsInput");
+const speakAreaNameBtn=document.getElementById("speakAreaName");
+const maxErrorsInput=document.getElementById("maxErrorsInput");
 const addAreaBtn=document.getElementById("addArea");
 const deleteAreaBtn=document.getElementById("deleteArea");
 const subareaSelect=document.getElementById("subareaSelect");
 const subareaNameInput=document.getElementById("subareaNameInput");
+const subareaNameTtsInput=document.getElementById("subareaNameTtsInput");
+const speakSubareaNameBtn=document.getElementById("speakSubareaName");
 const addSubareaBtn=document.getElementById("addSubarea");
 const deleteSubareaBtn=document.getElementById("deleteSubarea");
 const cardPosition=document.getElementById("cardPosition");
@@ -209,19 +250,26 @@ function savePosition(){try{localStorage.setItem(POSITION_KEY,JSON.stringify(pos
 let flashcardLibrary=loadFlashcardLibrary();
 let position=loadPosition()||{deckId:null,areaIndex:0,subareaIndex:0,cardIndex:0};
 
+function isOptionalString(value){return value===undefined||typeof value==="string"}
 function isValidDeck(deck){
   return !!deck&&typeof deck.shortName==="string"&&typeof deck.longName==="string"&&typeof deck.language==="string"&&
+    isOptionalString(deck.shortNameTts)&&isOptionalString(deck.longNameTts)&&
     Array.isArray(deck.areas)&&deck.areas.length>0&&
     deck.areas.every(area=>area&&typeof area.name==="string"&&
+      isOptionalString(area.nameTts)&&(area.maxErrors===undefined||typeof area.maxErrors==="number")&&
       Array.isArray(area.subareas)&&area.subareas.length>0&&
       area.subareas.every(subarea=>subarea&&typeof subarea.name==="string"&&
+        isOptionalString(subarea.nameTts)&&
         Array.isArray(subarea.cards)&&subarea.cards.length>0&&
         subarea.cards.every(card=>card&&typeof card.front==="string"&&typeof card.back==="string"&&
-          (card.frontTts===undefined||typeof card.frontTts==="string")&&
-          (card.backTts===undefined||typeof card.backTts==="string"))));
+          isOptionalString(card.frontTts)&&isOptionalString(card.backTts))));
 }
 function frontSpeechOf(card){return (card.frontTts||"").trim()||card.front}
 function backSpeechOf(card){return (card.backTts||"").trim()||card.back}
+function shortNameSpeechOf(deck){return (deck.shortNameTts||"").trim()||deck.shortName}
+function longNameSpeechOf(deck){return (deck.longNameTts||"").trim()||deck.longName}
+function areaNameSpeechOf(area){return (area.nameTts||"").trim()||area.name}
+function subareaNameSpeechOf(subarea){return (subarea.nameTts||"").trim()||subarea.name}
 
 function getDeck(){return position.deckId?flashcardLibrary[position.deckId]:null}
 function clampPosition(){
@@ -252,25 +300,35 @@ function renderNavSelects(){
   const hasDeck=!!deck;
   areaSelect.disabled=subareaSelect.disabled=prevCardBtn.disabled=nextCardBtn.disabled=
     speakFrontBtn.disabled=speakBackBtn.disabled=exportDeckBtn.disabled=
-    deckShortNameInput.disabled=deckLongNameInput.disabled=deckLanguageInput.disabled=
-    areaNameInput.disabled=addAreaBtn.disabled=deleteAreaBtn.disabled=
-    subareaNameInput.disabled=addSubareaBtn.disabled=deleteSubareaBtn.disabled=!hasDeck;
+    deckShortNameInput.disabled=deckShortNameTtsInput.disabled=speakDeckShortNameBtn.disabled=
+    deckLongNameInput.disabled=deckLongNameTtsInput.disabled=speakDeckLongNameBtn.disabled=
+    deckLanguageInput.disabled=
+    areaNameInput.disabled=areaNameTtsInput.disabled=speakAreaNameBtn.disabled=maxErrorsInput.disabled=
+    addAreaBtn.disabled=deleteAreaBtn.disabled=
+    subareaNameInput.disabled=subareaNameTtsInput.disabled=speakSubareaNameBtn.disabled=
+    addSubareaBtn.disabled=deleteSubareaBtn.disabled=!hasDeck;
   if(!hasDeck){
     areaSelect.replaceChildren();subareaSelect.replaceChildren();
-    deckShortNameInput.value=deckLongNameInput.value=deckLanguageInput.value="";
-    areaNameInput.value=subareaNameInput.value="";
+    deckShortNameInput.value=deckShortNameTtsInput.value=deckLongNameInput.value=deckLongNameTtsInput.value=deckLanguageInput.value="";
+    areaNameInput.value=areaNameTtsInput.value=maxErrorsInput.value=subareaNameInput.value=subareaNameTtsInput.value="";
     return;
   }
   deckShortNameInput.value=deck.shortName;
+  deckShortNameTtsInput.value=deck.shortNameTts||"";
   deckLongNameInput.value=deck.longName;
+  deckLongNameTtsInput.value=deck.longNameTts||"";
   deckLanguageInput.value=deck.language;
   areaSelect.replaceChildren(...deck.areas.map((area,index)=>{const option=document.createElement("option");option.value=index;option.textContent=area.name;return option}));
   areaSelect.value=position.areaIndex;
   const area=deck.areas[position.areaIndex];
   areaNameInput.value=area.name;
+  areaNameTtsInput.value=area.nameTts||"";
+  maxErrorsInput.value=area.maxErrors===undefined?"":area.maxErrors;
   subareaSelect.replaceChildren(...area.subareas.map((subarea,index)=>{const option=document.createElement("option");option.value=index;option.textContent=subarea.name;return option}));
   subareaSelect.value=position.subareaIndex;
-  subareaNameInput.value=area.subareas[position.subareaIndex].name;
+  const subarea=area.subareas[position.subareaIndex];
+  subareaNameInput.value=subarea.name;
+  subareaNameTtsInput.value=subarea.nameTts||"";
 }
 
 function renderCard(){
@@ -319,6 +377,16 @@ deckLongNameInput.addEventListener("input",()=>{
   const option=deckSelect.querySelector(`option[value="${CSS.escape(deck.shortName)}"]`);
   if(option)option.textContent=deck.longName;
 });
+deckShortNameTtsInput.addEventListener("input",()=>{
+  const deck=getDeck();if(!deck)return;
+  deck.shortNameTts=deckShortNameTtsInput.value;
+  saveFlashcardLibrary();
+});
+deckLongNameTtsInput.addEventListener("input",()=>{
+  const deck=getDeck();if(!deck)return;
+  deck.longNameTts=deckLongNameTtsInput.value;
+  saveFlashcardLibrary();
+});
 deckLanguageInput.addEventListener("input",()=>{
   const deck=getDeck();if(!deck)return;
   deck.language=deckLanguageInput.value;
@@ -333,6 +401,19 @@ areaNameInput.addEventListener("input",()=>{
   const option=areaSelect.options[position.areaIndex];
   if(option)option.textContent=area.name;
 });
+areaNameTtsInput.addEventListener("input",()=>{
+  const deck=getDeck();if(!deck)return;
+  deck.areas[position.areaIndex].nameTts=areaNameTtsInput.value;
+  saveFlashcardLibrary();
+});
+maxErrorsInput.addEventListener("input",()=>{
+  const deck=getDeck();if(!deck)return;
+  const area=deck.areas[position.areaIndex];
+  const raw=maxErrorsInput.value.trim();
+  if(raw===""){delete area.maxErrors}
+  else{const n=parseInt(raw,10);if(!Number.isNaN(n))area.maxErrors=n}
+  saveFlashcardLibrary();
+});
 subareaNameInput.addEventListener("input",()=>{
   const deck=getDeck();if(!deck)return;
   const subarea=deck.areas[position.areaIndex].subareas[position.subareaIndex];
@@ -340,6 +421,28 @@ subareaNameInput.addEventListener("input",()=>{
   saveFlashcardLibrary();
   const option=subareaSelect.options[position.subareaIndex];
   if(option)option.textContent=subarea.name;
+});
+subareaNameTtsInput.addEventListener("input",()=>{
+  const deck=getDeck();if(!deck)return;
+  deck.areas[position.areaIndex].subareas[position.subareaIndex].nameTts=subareaNameTtsInput.value;
+  saveFlashcardLibrary();
+});
+
+speakDeckShortNameBtn.addEventListener("click",()=>{
+  const deck=getDeck();if(!deck)return;
+  speak(shortNameSpeechOf(deck),deck.language);
+});
+speakDeckLongNameBtn.addEventListener("click",()=>{
+  const deck=getDeck();if(!deck)return;
+  speak(longNameSpeechOf(deck),deck.language);
+});
+speakAreaNameBtn.addEventListener("click",()=>{
+  const deck=getDeck();if(!deck)return;
+  speak(areaNameSpeechOf(deck.areas[position.areaIndex]),deck.language);
+});
+speakSubareaNameBtn.addEventListener("click",()=>{
+  const deck=getDeck();if(!deck)return;
+  speak(subareaNameSpeechOf(deck.areas[position.areaIndex].subareas[position.subareaIndex]),deck.language);
 });
 
 addAreaBtn.addEventListener("click",()=>{

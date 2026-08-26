@@ -1,5 +1,5 @@
 // Service worker pro offline chod aplikace.
-const CACHE_NAME = "ok-trainer-editor-v1";
+const CACHE_NAME = "ok-trainer-editor-v2";
 const CORE_ASSETS = [
   "./",
   "./index.html",

@@ -1,5 +1,5 @@
 // Service worker pro offline chod aplikace.
-const CACHE_NAME = "tts-speller-v2";
+const CACHE_NAME = "ok-trainer-editor-v1";
 const CORE_ASSETS = [
   "./",
   "./index.html",
@@ -9,6 +9,9 @@ const CORE_ASSETS = [
   "./icons/icon-512.png",
   "./SpellingAlphabets/English NATO ITU spelling.json",
   "./SpellingAlphabets/Česká hlásková abeceda.json",
+  "./Flashcards/Český test ČTÚ pro HAREC A.json",
+  "./Flashcards/Český návod.json",
+  "./Flashcards/English Tutorial.json",
   "./keepalive.wav"
 ];
 

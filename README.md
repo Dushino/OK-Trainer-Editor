@@ -1,8 +1,9 @@
-# An application for exploring TTS
+# An application for editing flashcard files for OK Trainer
 
-https://dushino.github.io/TTSSpeller/
+https://dushino.github.io/OK-Trainer-Editor/
 
-## TTS on Ubuntu
+
+## TTS installation on Ubuntu
 
 > sudo apt update
 > sudo apt install speech-dispatcher speech-dispatcher-espeak-ng espeak-ng  espeak-ng-data

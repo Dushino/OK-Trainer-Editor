@@ -3,48 +3,111 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TTS Speller</title>
+<title>OK Trainer Editor</title>
 <meta name="theme-color" content="#12181a">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="TTS Speller">
+<meta name="apple-mobile-web-app-title" content="OK Trainer">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <style>
   :root{--chassis:#12181a;--panel:#1b2426;--panel-2:#212c2e;--border:#2a3436;--text:#eae6d9;--muted:#8b9a95;--accent:#ffb020;--green:#6fe3a0;--sans:-apple-system,"Segoe UI",Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
   @media(prefers-color-scheme:light){:root{--chassis:#eee8d9;--panel:#fff;--panel-2:#efe8d6;--border:#d9d2bd;--text:#2b2a25;--muted:#6b6558;--accent:#a85d00;--green:#1f8a5c}}
-  *{box-sizing:border-box}html,body{margin:0;min-height:100%}body{background:var(--chassis);color:var(--text);font-family:var(--sans);padding:24px 16px 48px;display:flex;justify-content:center}.wrap{width:100%;max-width:640px}header{text-align:center;margin:8px 0 32px}h1{font-family:Georgia,"Times New Roman",serif;font-size:28px;letter-spacing:2px;color:var(--accent);margin:0}.field{margin:0 0 22px}label{display:block;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.3px;margin:0 0 7px}input,textarea,select{width:100%;font:15px var(--sans);color:var(--text);background:var(--panel);border:1px solid var(--border);border-radius:8px;outline:none}input,select{height:44px;padding:0 12px}textarea{min-height:150px;padding:12px;resize:vertical;line-height:1.45}input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent)}.control-row{display:flex;gap:6px}.control-row select{flex:1;min-width:0}button{width:44px;height:44px;flex:0 0 44px;border:1px solid var(--border);border-radius:8px;background:var(--panel);color:var(--text);font-size:19px;cursor:pointer}button:hover{background:var(--panel-2)}button:active{transform:translateY(1px)}.test-row{display:flex;align-items:flex-start;gap:8px}.test-row textarea{flex:1}.speak-btn{color:var(--green)}.status{min-height:18px;margin:4px 0 0;color:var(--muted);font-size:12px}.hidden{display:none}
+  *{box-sizing:border-box}html,body{margin:0;min-height:100%}body{background:var(--chassis);color:var(--text);font-family:var(--sans);padding:24px 16px 48px;display:flex;justify-content:center}.wrap{width:100%;max-width:640px}header{text-align:center;margin:8px 0 32px}h1{font-family:Georgia,"Times New Roman",serif;font-size:28px;letter-spacing:2px;color:var(--accent);margin:0}.field{margin:0 0 22px}label{display:block;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.3px;margin:0 0 7px}input,textarea,select{width:100%;font:15px var(--sans);color:var(--text);background:var(--panel);border:1px solid var(--border);border-radius:8px;outline:none}input,select{height:44px;padding:0 12px}textarea{min-height:110px;padding:12px;resize:vertical;line-height:1.45}input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent)}.control-row{display:flex;gap:6px}.control-row select{flex:1;min-width:0}button{width:44px;height:44px;flex:0 0 44px;border:1px solid var(--border);border-radius:8px;background:var(--panel);color:var(--text);font-size:19px;cursor:pointer}button:hover{background:var(--panel-2)}button:active{transform:translateY(1px)}button:disabled{opacity:.4;cursor:default}.test-row{display:flex;align-items:flex-start;gap:8px}.test-row textarea{flex:1}.speak-btn{color:var(--green)}.status{min-height:18px;margin:4px 0 0;color:var(--muted);font-size:12px}.hidden{display:none}.nav-row{display:flex;gap:8px}.nav-row button{width:auto;flex:1;font-size:15px;font-family:var(--sans)}.position{text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px;margin:0 0 14px}fieldset{border:1px solid var(--border);border-radius:8px;padding:14px;margin:0 0 22px}legend{padding:0 6px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.3px}
 </style>
 </head>
 <body>
 <main class="wrap">
-  <header><h1>TTS Speller</h1></header>
+  <header><h1>Flashcards Editor</h1></header>
+
   <div class="field">
-    <label for="ttsLanguage">TTS Language string:</label>
-    <input id="ttsLanguage" type="text" value="cs-CZ" autocomplete="language" spellcheck="false">
-  </div>
-  <div class="field">
-    <label for="spellingAlphabet">Spelling alphabet:</label>
+    <label for="deckSelect">Balíček karet:</label>
     <div class="control-row">
-      <select id="spellingAlphabet" aria-label="Spelling alphabet"></select>
-      <button id="importSpelling" type="button" title="Import spelling alphabet" aria-label="Import spelling alphabet">📥</button>
-      <input id="spellingFile" class="hidden" type="file" accept="application/json,.json">
+      <select id="deckSelect" aria-label="Balíček karet"></select>
+      <button id="importDeck" type="button" title="Importovat balíček JSON" aria-label="Importovat balíček JSON">📥</button>
+      <button id="exportDeck" type="button" title="Exportovat balíček JSON" aria-label="Exportovat balíček JSON">📤</button>
+      <input id="deckFile" class="hidden" type="file" accept="application/json,.json">
     </div>
+  </div>
+
+  <div class="field">
+    <label for="areaSelect">Oblast:</label>
+    <select id="areaSelect" aria-label="Oblast"></select>
   </div>
   <div class="field">
-    <label for="testString">Test string:</label>
-    <div class="test-row">
-      <textarea id="testString" placeholder="Enter text to read" spellcheck="false"></textarea>
-      <button id="speakText" class="speak-btn" type="button" title="Read test string" aria-label="Read test string">🔊</button>
-    </div>
-    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <label for="subareaSelect">Podoblast:</label>
+    <select id="subareaSelect" aria-label="Podoblast"></select>
   </div>
+
+  <p id="cardPosition" class="position"></p>
+
+  <div class="field nav-row">
+    <button id="prevCard" type="button">◀ Předchozí</button>
+    <button id="nextCard" type="button">Další ▶</button>
+  </div>
+
+  <div class="field">
+    <label for="frontText">Přední strana — text:</label>
+    <textarea id="frontText" spellcheck="false"></textarea>
+  </div>
+  <div class="field">
+    <label for="frontTtsText">Přední strana — text pro TTS (nepovinné):</label>
+    <div class="test-row">
+      <textarea id="frontTtsText" placeholder="Prázdné = použije se text výše" spellcheck="false"></textarea>
+      <button id="speakFront" class="speak-btn" type="button" title="Přehrát přední stranu" aria-label="Přehrát přední stranu">🔊</button>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="backText">Zadní strana — text:</label>
+    <textarea id="backText" spellcheck="false"></textarea>
+  </div>
+  <div class="field">
+    <label for="backTtsText">Zadní strana — text pro TTS (nepovinné):</label>
+    <div class="test-row">
+      <textarea id="backTtsText" placeholder="Prázdné = použije se text výše" spellcheck="false"></textarea>
+      <button id="speakBack" class="speak-btn" type="button" title="Přehrát zadní stranu" aria-label="Přehrát zadní stranu">🔊</button>
+    </div>
+  </div>
+
+  <fieldset>
+    <legend>Nastavení TTS</legend>
+    <div class="field" style="margin-bottom:0">
+      <label for="spellingAlphabet">Hláskovací abeceda (pro značky {X}):</label>
+      <div class="control-row">
+        <select id="spellingAlphabet" aria-label="Hláskovací abeceda"></select>
+        <button id="importSpelling" type="button" title="Importovat hláskovací abecedu" aria-label="Importovat hláskovací abecedu">📥</button>
+        <input id="spellingFile" class="hidden" type="file" accept="application/json,.json">
+      </div>
+    </div>
+  </fieldset>
+
+  <p id="status" class="status" role="status" aria-live="polite"></p>
 </main>
 <script>
 const BUILTIN_SPELLING={spellId:"itu-en",spellName:"ITU/NATO English",lang:"en-US",letters:{A:"Alpha",B:"Bravo",C:"Charlie",D:"Delta",E:"Echo",F:"Foxtrot",G:"Golf",H:"Hotel",I:"India",J:"Juliett",K:"Kilo",L:"Lima",M:"Mike",N:"November",O:"Oscar",P:"Papa",Q:"Quebec",R:"Romeo",S:"Sierra",T:"Tango",U:"Uniform",V:"Victor",W:"Whisky",X:"X-ray",Y:"Yankee",Z:"Zulu",0:"Zero",1:"One",2:"Two",3:"Three",4:"Four",5:"Five",6:"Six",7:"Seven",8:"Eight",9:"Nine","-":"to","–":"to","?":"Question mark"}};
-const SPELLING_KEY="ttsspeller_spelllib_v1";const ACTIVE_SPELLING_KEY="ttsspeller_activespell_v1";const alphabetSelect=document.getElementById("spellingAlphabet");const languageInput=document.getElementById("ttsLanguage");const testInput=document.getElementById("testString");const status=document.getElementById("status");
+const SPELLING_KEY="ttsspeller_spelllib_v1";const ACTIVE_SPELLING_KEY="ttsspeller_activespell_v1";
+const FLASHCARD_KEY="oktrainer_flashcards_v1";const POSITION_KEY="oktrainer_position_v1";
 const BUNDLED_SPELLING_FILES=["SpellingAlphabets/English NATO ITU spelling.json","SpellingAlphabets/Česká hlásková abeceda.json"];
+const BUNDLED_FLASHCARD_FILES=["Flashcards/Český test ČTÚ pro HAREC A.json","Flashcards/Český návod.json","Flashcards/English Tutorial.json"];
+
+const deckSelect=document.getElementById("deckSelect");
+const areaSelect=document.getElementById("areaSelect");
+const subareaSelect=document.getElementById("subareaSelect");
+const cardPosition=document.getElementById("cardPosition");
+const prevCardBtn=document.getElementById("prevCard");
+const nextCardBtn=document.getElementById("nextCard");
+const frontText=document.getElementById("frontText");
+const frontTtsText=document.getElementById("frontTtsText");
+const backText=document.getElementById("backText");
+const backTtsText=document.getElementById("backTtsText");
+const speakFrontBtn=document.getElementById("speakFront");
+const speakBackBtn=document.getElementById("speakBack");
+const alphabetSelect=document.getElementById("spellingAlphabet");
+const status=document.getElementById("status");
+
+// --- Spelling alphabets (used for {X} markers inside card TTS text) ---
 function loadSpellingLibrary(){try{const library=JSON.parse(localStorage.getItem(SPELLING_KEY)||"{}");library[BUILTIN_SPELLING.spellId]=library[BUILTIN_SPELLING.spellId]||BUILTIN_SPELLING;return library}catch(e){return {[BUILTIN_SPELLING.spellId]:BUILTIN_SPELLING}}}
 let spellingLibrary=loadSpellingLibrary();let activeSpellingId=localStorage.getItem(ACTIVE_SPELLING_KEY)||BUILTIN_SPELLING.spellId;if(!spellingLibrary[activeSpellingId])activeSpellingId=BUILTIN_SPELLING.spellId;
 function saveSpellingLibrary(){try{localStorage.setItem(SPELLING_KEY,JSON.stringify(spellingLibrary))}catch(e){}}
@@ -57,7 +120,7 @@ async function loadBundledSpelling(){
 function renderSpellingAlphabets(){const ids=Object.keys(spellingLibrary).sort((a,b)=>a===BUILTIN_SPELLING.spellId?-1:b===BUILTIN_SPELLING.spellId?1:a.localeCompare(b));alphabetSelect.replaceChildren(...ids.map(id=>{const option=document.createElement("option");option.value=id;option.textContent=spellingLibrary[id].spellName||id;return option}));alphabetSelect.value=activeSpellingId}
 alphabetSelect.addEventListener("change",()=>{activeSpellingId=alphabetSelect.value;try{localStorage.setItem(ACTIVE_SPELLING_KEY,activeSpellingId)}catch(e){}});
 document.getElementById("importSpelling").addEventListener("click",()=>document.getElementById("spellingFile").click());
-document.getElementById("spellingFile").addEventListener("change",event=>{const file=event.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const pack=JSON.parse(reader.result);if(!pack||typeof pack.spellId!=="string"||typeof pack.spellName!=="string"||typeof pack.lang!=="string"||!pack.letters||typeof pack.letters!=="object")throw new Error("Invalid spelling alphabet format");spellingLibrary[pack.spellId]=pack;activeSpellingId=pack.spellId;saveSpellingLibrary();renderSpellingAlphabets()}catch(error){window.alert(error.message)}event.target.value=""};reader.readAsText(file,"utf-8")});
+document.getElementById("spellingFile").addEventListener("change",event=>{const file=event.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const pack=JSON.parse(reader.result);if(!pack||typeof pack.spellId!=="string"||typeof pack.spellName!=="string"||typeof pack.lang!=="string"||!pack.letters||typeof pack.letters!=="object")throw new Error("Neplatný formát hláskovací abecedy");spellingLibrary[pack.spellId]=pack;activeSpellingId=pack.spellId;saveSpellingLibrary();renderSpellingAlphabets()}catch(error){window.alert(error.message)}event.target.value=""};reader.readAsText(file,"utf-8")});
 function buildSpeechSegments(text, language){
   const alphabet=spellingLibrary[activeSpellingId]||BUILTIN_SPELLING;
   const segments=[];
@@ -87,11 +150,198 @@ function speakSegments(segments, index=0){
   const voice=voices.find(candidate=>candidate.lang.toLowerCase()===language)||voices.find(candidate=>candidate.lang.toLowerCase().startsWith(language.split("-")[0]+"-"));
   if(voice)utterance.voice=voice;
   utterance.onend=()=>speakSegments(segments,index+1);
-  utterance.onerror=()=>{status.textContent="Speech synthesis could not read the text."};
+  utterance.onerror=()=>{status.textContent="Přehrávání se nezdařilo."};
   window.speechSynthesis.speak(utterance);
 }
-document.getElementById("speakText").addEventListener("click",()=>{const text=testInput.value.trim();const language=languageInput.value.trim();if(!text||!language)return;if(!( "speechSynthesis" in window)){status.textContent="Speech synthesis is not supported by this browser.";return}window.speechSynthesis.cancel();status.textContent="Reading...";speakSegments(buildSpeechSegments(text,language))});
-renderSpellingAlphabets();loadBundledSpelling();if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+function speak(text,language){
+  if(!text||!language)return;
+  if(!("speechSynthesis" in window)){status.textContent="Tento prohlížeč nepodporuje syntézu řeči.";return}
+  window.speechSynthesis.cancel();status.textContent="Přehrávám...";speakSegments(buildSpeechSegments(text,language));
+}
+
+// --- Flashcard decks ---
+function loadFlashcardLibrary(){try{return JSON.parse(localStorage.getItem(FLASHCARD_KEY)||"{}")}catch(e){return {}}}
+function saveFlashcardLibrary(){try{localStorage.setItem(FLASHCARD_KEY,JSON.stringify(flashcardLibrary))}catch(e){}}
+function loadPosition(){try{return JSON.parse(localStorage.getItem(POSITION_KEY))||null}catch(e){return null}}
+function savePosition(){try{localStorage.setItem(POSITION_KEY,JSON.stringify(position))}catch(e){}}
+
+let flashcardLibrary=loadFlashcardLibrary();
+let position=loadPosition()||{deckId:null,areaIndex:0,subareaIndex:0,cardIndex:0};
+
+function isValidDeck(deck){
+  return !!deck&&typeof deck.shortName==="string"&&typeof deck.longName==="string"&&typeof deck.language==="string"&&
+    Array.isArray(deck.areas)&&deck.areas.length>0&&
+    deck.areas.every(area=>area&&typeof area.name==="string"&&
+      Array.isArray(area.subareas)&&area.subareas.length>0&&
+      area.subareas.every(subarea=>subarea&&typeof subarea.name==="string"&&
+        Array.isArray(subarea.cards)&&subarea.cards.length>0&&
+        subarea.cards.every(card=>card&&typeof card.front==="string"&&typeof card.back==="string"&&
+          (card.frontTts===undefined||typeof card.frontTts==="string")&&
+          (card.backTts===undefined||typeof card.backTts==="string"))));
+}
+function frontSpeechOf(card){return (card.frontTts||"").trim()||card.front}
+function backSpeechOf(card){return (card.backTts||"").trim()||card.back}
+
+function getDeck(){return position.deckId?flashcardLibrary[position.deckId]:null}
+function clampPosition(){
+  const deck=getDeck();
+  if(!deck)return;
+  position.areaIndex=Math.min(Math.max(position.areaIndex,0),deck.areas.length-1);
+  const area=deck.areas[position.areaIndex];
+  position.subareaIndex=Math.min(Math.max(position.subareaIndex,0),area.subareas.length-1);
+  const subarea=area.subareas[position.subareaIndex];
+  position.cardIndex=Math.min(Math.max(position.cardIndex,0),subarea.cards.length-1);
+}
+
+function renderDeckSelect(){
+  const ids=Object.keys(flashcardLibrary).sort((a,b)=>a.localeCompare(b));
+  deckSelect.replaceChildren(...ids.map(id=>{const option=document.createElement("option");option.value=id;option.textContent=flashcardLibrary[id].longName||id;return option}));
+  if(ids.length)deckSelect.value=position.deckId&&flashcardLibrary[position.deckId]?position.deckId:ids[0];
+}
+
+function renderNavSelects(){
+  const deck=getDeck();
+  const hasDeck=!!deck;
+  areaSelect.disabled=subareaSelect.disabled=prevCardBtn.disabled=nextCardBtn.disabled=
+    speakFrontBtn.disabled=speakBackBtn.disabled=exportDeckBtn.disabled=!hasDeck;
+  if(!hasDeck){areaSelect.replaceChildren();subareaSelect.replaceChildren();return}
+  areaSelect.replaceChildren(...deck.areas.map((area,index)=>{const option=document.createElement("option");option.value=index;option.textContent=area.name;return option}));
+  areaSelect.value=position.areaIndex;
+  const subareas=deck.areas[position.areaIndex].subareas;
+  subareaSelect.replaceChildren(...subareas.map((subarea,index)=>{const option=document.createElement("option");option.value=index;option.textContent=subarea.name;return option}));
+  subareaSelect.value=position.subareaIndex;
+}
+
+function renderCard(){
+  const deck=getDeck();
+  const editable=[frontText,frontTtsText,backText,backTtsText];
+  if(!deck){
+    cardPosition.textContent="Nejsou načteny žádné balíčky karet.";
+    editable.forEach(field=>{field.value="";field.disabled=true});
+    return;
+  }
+  editable.forEach(field=>field.disabled=false);
+  const area=deck.areas[position.areaIndex];
+  const subarea=area.subareas[position.subareaIndex];
+  const card=subarea.cards[position.cardIndex];
+  cardPosition.textContent=`${area.name} › ${subarea.name} — karta ${position.cardIndex+1}/${subarea.cards.length}`;
+  frontText.value=card.front;
+  frontTtsText.value=card.frontTts||"";
+  backText.value=card.back;
+  backTtsText.value=card.backTts||"";
+}
+
+function renderAll(){clampPosition();renderNavSelects();renderCard();savePosition()}
+
+deckSelect.addEventListener("change",()=>{position={deckId:deckSelect.value,areaIndex:0,subareaIndex:0,cardIndex:0};renderAll()});
+areaSelect.addEventListener("change",()=>{position.areaIndex=Number(areaSelect.value);position.subareaIndex=0;position.cardIndex=0;renderAll()});
+subareaSelect.addEventListener("change",()=>{position.subareaIndex=Number(subareaSelect.value);position.cardIndex=0;renderAll()});
+
+function nextCard(){
+  const deck=getDeck();if(!deck)return;
+  const area=deck.areas[position.areaIndex];
+  const subarea=area.subareas[position.subareaIndex];
+  if(position.cardIndex<subarea.cards.length-1){position.cardIndex++;renderAll();return}
+  if(position.subareaIndex<area.subareas.length-1){position.subareaIndex++;position.cardIndex=0;renderAll();return}
+  if(position.areaIndex<deck.areas.length-1){position.areaIndex++;position.subareaIndex=0;position.cardIndex=0;renderAll();return}
+  position.areaIndex=0;position.subareaIndex=0;position.cardIndex=0;renderAll();
+}
+function previousCard(){
+  const deck=getDeck();if(!deck)return;
+  if(position.cardIndex>0){position.cardIndex--;renderAll();return}
+  const area=deck.areas[position.areaIndex];
+  if(position.subareaIndex>0){position.subareaIndex--;position.cardIndex=area.subareas[position.subareaIndex].cards.length-1;renderAll();return}
+  if(position.areaIndex>0){
+    position.areaIndex--;
+    const previousArea=deck.areas[position.areaIndex];
+    position.subareaIndex=previousArea.subareas.length-1;
+    position.cardIndex=previousArea.subareas[position.subareaIndex].cards.length-1;
+    renderAll();return
+  }
+  position.areaIndex=deck.areas.length-1;
+  const lastArea=deck.areas[position.areaIndex];
+  position.subareaIndex=lastArea.subareas.length-1;
+  position.cardIndex=lastArea.subareas[position.subareaIndex].cards.length-1;
+  renderAll();
+}
+prevCardBtn.addEventListener("click",previousCard);
+nextCardBtn.addEventListener("click",nextCard);
+
+function updateCardField(field,value){
+  const deck=getDeck();if(!deck)return;
+  const card=deck.areas[position.areaIndex].subareas[position.subareaIndex].cards[position.cardIndex];
+  card[field]=value;
+  saveFlashcardLibrary();
+}
+frontText.addEventListener("input",()=>updateCardField("front",frontText.value));
+frontTtsText.addEventListener("input",()=>updateCardField("frontTts",frontTtsText.value));
+backText.addEventListener("input",()=>updateCardField("back",backText.value));
+backTtsText.addEventListener("input",()=>updateCardField("backTts",backTtsText.value));
+
+speakFrontBtn.addEventListener("click",()=>{
+  const deck=getDeck();if(!deck)return;
+  const card=deck.areas[position.areaIndex].subareas[position.subareaIndex].cards[position.cardIndex];
+  speak(frontSpeechOf(card),deck.language);
+});
+speakBackBtn.addEventListener("click",()=>{
+  const deck=getDeck();if(!deck)return;
+  const card=deck.areas[position.areaIndex].subareas[position.subareaIndex].cards[position.cardIndex];
+  speak(backSpeechOf(card),deck.language);
+});
+
+const importDeckBtn=document.getElementById("importDeck");
+const exportDeckBtn=document.getElementById("exportDeck");
+const deckFile=document.getElementById("deckFile");
+importDeckBtn.addEventListener("click",()=>deckFile.click());
+deckFile.addEventListener("change",event=>{
+  const file=event.target.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const deck=JSON.parse(reader.result);
+      if(!isValidDeck(deck))throw new Error("Neplatný formát balíčku flashcards");
+      flashcardLibrary[deck.shortName]=deck;
+      saveFlashcardLibrary();
+      position={deckId:deck.shortName,areaIndex:0,subareaIndex:0,cardIndex:0};
+      renderDeckSelect();
+      renderAll();
+      status.textContent=`Balíček „${deck.longName}“ byl naimportován.`;
+    }catch(error){window.alert(error.message)}
+    event.target.value="";
+  };
+  reader.readAsText(file,"utf-8");
+});
+exportDeckBtn.addEventListener("click",()=>{
+  const deck=getDeck();if(!deck)return;
+  const blob=new Blob([JSON.stringify(deck,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob);
+  const link=document.createElement("a");
+  link.href=url;
+  link.download=`${deck.shortName||"flashcards"}.json`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+});
+
+async function loadBundledFlashcards(){
+  const decks=await Promise.all(BUNDLED_FLASHCARD_FILES.map(async file=>{try{const response=await fetch(file);return response.ok?response.json():null}catch(e){return null}}));
+  let changed=false;
+  decks.filter(Boolean).forEach(deck=>{
+    if(isValidDeck(deck)&&!flashcardLibrary[deck.shortName]){flashcardLibrary[deck.shortName]=deck;changed=true}
+  });
+  if(changed)saveFlashcardLibrary();
+  if(!position.deckId||!flashcardLibrary[position.deckId]){
+    const ids=Object.keys(flashcardLibrary);
+    if(ids.length)position={deckId:ids[0],areaIndex:0,subareaIndex:0,cardIndex:0};
+  }
+  renderDeckSelect();
+  renderAll();
+}
+
+renderSpellingAlphabets();loadBundledSpelling();
+renderDeckSelect();renderAll();loadBundledFlashcards();
+if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
 </script>
 </body>
 </html>

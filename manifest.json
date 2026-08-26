@@ -1,7 +1,7 @@
 {
-  "name": "TTS Speller",
-  "short_name": "TTS Speller",
-  "description": "Test řeči a hláskování pro OK Trainer",
+  "name": "OK Trainer Editor",
+  "short_name": "OK Trainer",
+  "description": "Editor kartiček (flashcards) a jejich TTS výstupu pro OK Trainer",
   "lang": "cs",
   "dir": "ltr",
   "start_url": "./",

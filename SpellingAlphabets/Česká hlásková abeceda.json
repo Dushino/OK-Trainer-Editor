@@ -1,0 +1,16 @@
+{
+  "spellId": "cs-hlaskovaci",
+  "spellName": "Česká hlásková abeceda",
+  "lang": "cs-CZ",
+  "letters": {
+    "A": "Adam", "B": "Božena", "C": "Cyril", "D": "David", "E": "Emil",
+    "F": "František", "G": "Gustav", "H": "Helena", "I": "Ivan", "J": "Josef",
+    "K": "Karel", "L": "Ludvík", "M": "Marie", "N": "Norbert", "O": "Otakar",
+    "P": "Petr", "Q": "Quido", "R": "Rudolf", "S": "Svatopluk", "T": "Tomáš",
+    "U": "Urban", "V": "Václav", "W": "dvojité V", "X": "Xaver", "Y": "Ypsilon",
+    "Z": "Zuzana",
+    "0": "nula", "1": "jedna", "2": "dva", "3": "tři", "4": "čtyři",
+    "5": "pět", "6": "šest", "7": "sedm", "8": "osm", "9": "devět",
+    "-": "až", "–": "až", "?": "Otazník"
+  }
+}

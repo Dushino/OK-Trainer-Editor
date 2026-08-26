@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TTS Speller</title>
+<meta name="theme-color" content="#12181a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="TTS Speller">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<style>
+  :root{--chassis:#12181a;--panel:#1b2426;--panel-2:#212c2e;--border:#2a3436;--text:#eae6d9;--muted:#8b9a95;--accent:#ffb020;--green:#6fe3a0;--sans:-apple-system,"Segoe UI",Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  @media(prefers-color-scheme:light){:root{--chassis:#eee8d9;--panel:#fff;--panel-2:#efe8d6;--border:#d9d2bd;--text:#2b2a25;--muted:#6b6558;--accent:#a85d00;--green:#1f8a5c}}
+  *{box-sizing:border-box}html,body{margin:0;min-height:100%}body{background:var(--chassis);color:var(--text);font-family:var(--sans);padding:24px 16px 48px;display:flex;justify-content:center}.wrap{width:100%;max-width:640px}header{text-align:center;margin:8px 0 32px}h1{font-family:Georgia,"Times New Roman",serif;font-size:28px;letter-spacing:2px;color:var(--accent);margin:0}.field{margin:0 0 22px}label{display:block;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.3px;margin:0 0 7px}input,textarea,select{width:100%;font:15px var(--sans);color:var(--text);background:var(--panel);border:1px solid var(--border);border-radius:8px;outline:none}input,select{height:44px;padding:0 12px}textarea{min-height:150px;padding:12px;resize:vertical;line-height:1.45}input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent)}.control-row{display:flex;gap:6px}.control-row select{flex:1;min-width:0}button{width:44px;height:44px;flex:0 0 44px;border:1px solid var(--border);border-radius:8px;background:var(--panel);color:var(--text);font-size:19px;cursor:pointer}button:hover{background:var(--panel-2)}button:active{transform:translateY(1px)}.test-row{display:flex;align-items:flex-start;gap:8px}.test-row textarea{flex:1}.speak-btn{color:var(--green)}.status{min-height:18px;margin:4px 0 0;color:var(--muted);font-size:12px}.hidden{display:none}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header><h1>TTS Speller</h1></header>
+  <div class="field">
+    <label for="ttsLanguage">TTS Language string:</label>
+    <input id="ttsLanguage" type="text" value="cs-CZ" autocomplete="language" spellcheck="false">
+  </div>
+  <div class="field">
+    <label for="spellingAlphabet">Spelling alphabet:</label>
+    <div class="control-row">
+      <select id="spellingAlphabet" aria-label="Spelling alphabet"></select>
+      <button id="importSpelling" type="button" title="Import spelling alphabet" aria-label="Import spelling alphabet">📥</button>
+      <input id="spellingFile" class="hidden" type="file" accept="application/json,.json">
+    </div>
+  </div>
+  <div class="field">
+    <label for="testString">Test string:</label>
+    <div class="test-row">
+      <textarea id="testString" placeholder="Enter text to read" spellcheck="false"></textarea>
+      <button id="speakText" class="speak-btn" type="button" title="Read test string" aria-label="Read test string">🔊</button>
+    </div>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+  </div>
+</main>
+<script>
+const BUILTIN_SPELLING={spellId:"itu-en",spellName:"ITU/NATO English",lang:"en-US",letters:{A:"Alpha",B:"Bravo",C:"Charlie",D:"Delta",E:"Echo",F:"Foxtrot",G:"Golf",H:"Hotel",I:"India",J:"Juliett",K:"Kilo",L:"Lima",M:"Mike",N:"November",O:"Oscar",P:"Papa",Q:"Quebec",R:"Romeo",S:"Sierra",T:"Tango",U:"Uniform",V:"Victor",W:"Whisky",X:"X-ray",Y:"Yankee",Z:"Zulu",0:"Zero",1:"One",2:"Two",3:"Three",4:"Four",5:"Five",6:"Six",7:"Seven",8:"Eight",9:"Nine","-":"to","–":"to","?":"Question mark"}};
+const SPELLING_KEY="ttsspeller_spelllib_v1";const ACTIVE_SPELLING_KEY="ttsspeller_activespell_v1";const alphabetSelect=document.getElementById("spellingAlphabet");const languageInput=document.getElementById("ttsLanguage");const testInput=document.getElementById("testString");const status=document.getElementById("status");
+const BUNDLED_SPELLING_FILES=["SpellingAlphabets/English NATO ITU spelling.json","SpellingAlphabets/Česká hlásková abeceda.json"];
+function loadSpellingLibrary(){try{const library=JSON.parse(localStorage.getItem(SPELLING_KEY)||"{}");library[BUILTIN_SPELLING.spellId]=library[BUILTIN_SPELLING.spellId]||BUILTIN_SPELLING;return library}catch(e){return {[BUILTIN_SPELLING.spellId]:BUILTIN_SPELLING}}}
+let spellingLibrary=loadSpellingLibrary();let activeSpellingId=localStorage.getItem(ACTIVE_SPELLING_KEY)||BUILTIN_SPELLING.spellId;if(!spellingLibrary[activeSpellingId])activeSpellingId=BUILTIN_SPELLING.spellId;
+function saveSpellingLibrary(){try{localStorage.setItem(SPELLING_KEY,JSON.stringify(spellingLibrary))}catch(e){}}
+async function loadBundledSpelling(){
+  const packs=await Promise.all(BUNDLED_SPELLING_FILES.map(async file=>{try{const response=await fetch(file);return response.ok?response.json():null}catch(e){return null}}));
+  let changed=false;
+  packs.filter(Boolean).forEach(pack=>{if(pack.spellId&&pack.spellName&&pack.lang&&pack.letters&&JSON.stringify(spellingLibrary[pack.spellId])!==JSON.stringify(pack)){spellingLibrary[pack.spellId]=pack;changed=true}});
+  if(changed){saveSpellingLibrary();renderSpellingAlphabets()}
+}
+function renderSpellingAlphabets(){const ids=Object.keys(spellingLibrary).sort((a,b)=>a===BUILTIN_SPELLING.spellId?-1:b===BUILTIN_SPELLING.spellId?1:a.localeCompare(b));alphabetSelect.replaceChildren(...ids.map(id=>{const option=document.createElement("option");option.value=id;option.textContent=spellingLibrary[id].spellName||id;return option}));alphabetSelect.value=activeSpellingId}
+alphabetSelect.addEventListener("change",()=>{activeSpellingId=alphabetSelect.value;try{localStorage.setItem(ACTIVE_SPELLING_KEY,activeSpellingId)}catch(e){}});
+document.getElementById("importSpelling").addEventListener("click",()=>document.getElementById("spellingFile").click());
+document.getElementById("spellingFile").addEventListener("change",event=>{const file=event.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const pack=JSON.parse(reader.result);if(!pack||typeof pack.spellId!=="string"||typeof pack.spellName!=="string"||typeof pack.lang!=="string"||!pack.letters||typeof pack.letters!=="object")throw new Error("Invalid spelling alphabet format");spellingLibrary[pack.spellId]=pack;activeSpellingId=pack.spellId;saveSpellingLibrary();renderSpellingAlphabets()}catch(error){window.alert(error.message)}event.target.value=""};reader.readAsText(file,"utf-8")});
+function buildSpeechSegments(text, language){
+  const alphabet=spellingLibrary[activeSpellingId]||BUILTIN_SPELLING;
+  const segments=[];
+  const marker=/\{([^{}]*)\}/g;
+  let position=0;
+  let match;
+  while((match=marker.exec(text))){
+    if(match.index>position) segments.push({text:text.slice(position,match.index),lang:language});
+    const marked=match[1];
+    if(/[\p{L}\p{N}]/u.test(marked)){
+      const spelled=Array.from(marked).map(character=>alphabet.letters[character]||alphabet.letters[character.toUpperCase()]||character).join(" ");
+      segments.push({text:spelled,lang:alphabet.lang});
+    }else{
+      segments.push({text:match[0],lang:language});
+    }
+    position=match.index+match[0].length;
+  }
+  if(position<text.length) segments.push({text:text.slice(position),lang:language});
+  return segments.filter(segment=>segment.text);
+}
+function speakSegments(segments, index=0){
+  if(index>=segments.length){status.textContent="";return}
+  const utterance=new SpeechSynthesisUtterance(segments[index].text);
+  utterance.lang=segments[index].lang;
+  const voices=window.speechSynthesis.getVoices();
+  const language=segments[index].lang.toLowerCase();
+  const voice=voices.find(candidate=>candidate.lang.toLowerCase()===language)||voices.find(candidate=>candidate.lang.toLowerCase().startsWith(language.split("-")[0]+"-"));
+  if(voice)utterance.voice=voice;
+  utterance.onend=()=>speakSegments(segments,index+1);
+  utterance.onerror=()=>{status.textContent="Speech synthesis could not read the text."};
+  window.speechSynthesis.speak(utterance);
+}
+document.getElementById("speakText").addEventListener("click",()=>{const text=testInput.value.trim();const language=languageInput.value.trim();if(!text||!language)return;if(!( "speechSynthesis" in window)){status.textContent="Speech synthesis is not supported by this browser.";return}window.speechSynthesis.cancel();status.textContent="Reading...";speakSegments(buildSpeechSegments(text,language))});
+renderSpellingAlphabets();loadBundledSpelling();if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+</script>
+</body>
+</html>

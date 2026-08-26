@@ -1,0 +1,45 @@
+{
+  "shortName": "CZ Tutoriál",
+  "longName": "Ukázková sada — jak OK Trainer používat",
+  "language": "cs-CZ",
+  "areas": [
+    {
+      "name": "Základy ovládání",
+      "subareas": [
+        {
+          "name": "Kartičky",
+          "cards": [
+            { "front": "Jak otočíš kartičku pro zobrazení odpověďi?", "back": "Klepnutím na kartičku, nebo klávesou mezerník." },
+            { "front": "Co znamená barva pruhu ve statistikách?", "back": "Červená = špatné výsledky, oranžová = někde uprostřed, zelená = spolehlivě umíš." }
+          ]
+        },
+        {
+          "name": "Skupiny a výběr",
+          "cards": [
+            { "front": "Jak jsou rozděleny otázky?", "back": "Do oblastí a podoblastí — nahoře si vybereš oblast, pod ní konkrétní podoblast nebo „vše\"." },
+            { "front": "Co udělá tlačítko „reset statistiky vybrané (pod)oblasti\"?", "back": "Vynuluje uloženou úspěšnost pro danou (pod)oblast, obsah kartiček zůstane beze změny." }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pokročilé funkce",
+      "subareas": [
+        {
+          "name": "Handsfree režim",
+          "cards": [
+            { "front": "K čemu slouží tlačítko 🎧 „Spustit režim handsfree\"?", "back": "Zapne hlasové čtení kartiček ovládané tlačítky Next/Previous track na sluchátkách nebo hodinkách." },
+            { "front": "Jak přečíst otázku znovu?", "back": "Stiskni Prev/Previous track, dokud je kartička otočená na přední straně." }
+          ]
+        },
+        {
+          "name": "Vlastní sady otázek",
+          "cards": [
+            { "front": "Odkud se berou otázky?", "back": "Z naimportovaného JSON souboru — je možno vytvořit vlastní sadu." },
+            { "front": "Co se stane, když naimportuješ sadu se stejným krátkým názvem, jaký je již importován?", "back": "Budou vynulovány veškeré statistiky pro tuto sadu." }
+          ]
+        }
+      ]
+    }
+  ]
+}

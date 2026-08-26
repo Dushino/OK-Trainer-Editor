@@ -1,0 +1,45 @@
+{
+  "shortName": "Tutorial",
+  "longName": "Sample set — how to use OK Trainer",
+  "language": "en-US",
+  "areas": [
+    {
+      "name": "Basics",
+      "subareas": [
+        {
+          "name": "Flashcards",
+          "cards": [
+            { "front": "How do you flip a card to see the answer?", "back": "Tap the card, or press the space bar." },
+            { "front": "What does the color of the bar in the statistics mean?", "back": "Red = poor results, orange = somewhere in between, green = you know it reliably." }
+          ]
+        },
+        {
+          "name": "Groups and selection",
+          "cards": [
+            { "front": "How are the questions organized?", "back": "Into areas and subareas — pick an area at the top, then a specific subarea below it, or \"all\"." },
+            { "front": "What does the \"reset stats for selected (sub)area\" button do?", "back": "It resets the saved success rate for that (sub)area; the card content stays unchanged." }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Advanced features",
+      "subareas": [
+        {
+          "name": "Handsfree mode",
+          "cards": [
+            { "front": "What does the 🎧 \"Start handsfree mode\" button do?", "back": "It turns on voice reading of the cards, controlled with the Next/Previous track buttons on your headset or watch." },
+            { "front": "How do you hear the question again?", "back": "Press Prev/Previous track while the card is still showing its front side." }
+          ]
+        },
+        {
+          "name": "Custom question sets",
+          "cards": [
+            { "front": "Where do the questions come from?", "back": "From an imported JSON file — you can create your own set." },
+            { "front": "What happens if you import a set with the same short name as one that's already imported?", "back": "All statistics for that set will be reset." }
+          ]
+        }
+      ]
+    }
+  ]
+}

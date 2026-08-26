@@ -14,7 +14,7 @@
 <style>
   :root{--chassis:#12181a;--panel:#1b2426;--panel-2:#212c2e;--border:#2a3436;--text:#eae6d9;--muted:#8b9a95;--accent:#ffb020;--green:#6fe3a0;--sans:-apple-system,"Segoe UI",Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
   @media(prefers-color-scheme:light){:root{--chassis:#eee8d9;--panel:#fff;--panel-2:#efe8d6;--border:#d9d2bd;--text:#2b2a25;--muted:#6b6558;--accent:#a85d00;--green:#1f8a5c}}
-  *{box-sizing:border-box}html,body{margin:0;min-height:100%}body{background:var(--chassis);color:var(--text);font-family:var(--sans);padding:24px 16px 48px;display:flex;justify-content:center}.wrap{width:100%;max-width:640px}header{text-align:center;margin:8px 0 32px}h1{font-family:Georgia,"Times New Roman",serif;font-size:28px;letter-spacing:2px;color:var(--accent);margin:0}.field{margin:0 0 22px}label{display:block;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.3px;margin:0 0 7px}input,textarea,select{width:100%;font:15px var(--sans);color:var(--text);background:var(--panel);border:1px solid var(--border);border-radius:8px;outline:none}input,select{height:44px;padding:0 12px}textarea{min-height:110px;padding:12px;resize:vertical;line-height:1.45}input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent)}.control-row{display:flex;gap:6px}.control-row select{flex:1;min-width:0}button{width:44px;height:44px;flex:0 0 44px;border:1px solid var(--border);border-radius:8px;background:var(--panel);color:var(--text);font-size:19px;cursor:pointer}button:hover{background:var(--panel-2)}button:active{transform:translateY(1px)}button:disabled{opacity:.4;cursor:default}.test-row{display:flex;align-items:flex-start;gap:8px}.test-row textarea{flex:1}.speak-btn{color:var(--green)}.status{min-height:18px;margin:4px 0 0;color:var(--muted);font-size:12px}.hidden{display:none}.nav-row{display:flex;gap:8px}.nav-row button{width:auto;flex:1;font-size:15px;font-family:var(--sans)}.position{text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px;margin:0 0 14px}fieldset{border:1px solid var(--border);border-radius:8px;padding:14px;margin:0 0 22px}legend{padding:0 6px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.3px}
+  *{box-sizing:border-box}html,body{margin:0;min-height:100%}body{background:var(--chassis);color:var(--text);font-family:var(--sans);padding:24px 16px 48px;display:flex;justify-content:center}.wrap{width:100%;max-width:640px}header{text-align:center;margin:8px 0 32px}h1{font-family:Georgia,"Times New Roman",serif;font-size:28px;letter-spacing:2px;color:var(--accent);margin:0}.field{margin:0 0 22px}label{display:block;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.3px;margin:0 0 7px}input,textarea,select{width:100%;font:15px var(--sans);color:var(--text);background:var(--panel);border:1px solid var(--border);border-radius:8px;outline:none}input,select{height:44px;padding:0 12px}textarea{min-height:110px;padding:12px;resize:vertical;line-height:1.45}input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent)}.control-row{display:flex;gap:6px}.control-row select{flex:1;min-width:0}button{width:44px;height:44px;flex:0 0 44px;border:1px solid var(--border);border-radius:8px;background:var(--panel);color:var(--text);font-size:19px;cursor:pointer}button:hover{background:var(--panel-2)}button:active{transform:translateY(1px)}button:disabled{opacity:.4;cursor:default}.test-row{display:flex;align-items:flex-start;gap:8px}.test-row textarea{flex:1}.speak-btn{color:var(--green)}.status{min-height:18px;margin:4px 0 0;color:var(--muted);font-size:12px}.hidden{display:none}.nav-row{display:flex;gap:8px}.nav-row button{width:auto;flex:1;font-size:15px;font-family:var(--sans)}.position{text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px;margin:0 0 14px}fieldset{border:1px solid var(--border);border-radius:8px;padding:14px;margin:0 0 22px}legend{padding:0 6px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.3px}.divider{border:none;border-top:1px solid var(--border);margin:0 0 22px}
 </style>
 </head>
 <body>
@@ -30,15 +30,47 @@
       <input id="deckFile" class="hidden" type="file" accept="application/json,.json">
     </div>
   </div>
+  <div class="field">
+    <label for="deckShortName">Krátký název balíčku:</label>
+    <input id="deckShortName" type="text" spellcheck="false">
+  </div>
+  <div class="field">
+    <label for="deckLongName">Popis balíčku:</label>
+    <input id="deckLongName" type="text" spellcheck="false">
+  </div>
+  <div class="field">
+    <label for="deckLanguage">Jazyk balíčku (např. cs-CZ):</label>
+    <input id="deckLanguage" type="text" spellcheck="false">
+  </div>
+  <hr class="divider">
 
   <div class="field">
     <label for="areaSelect">Oblast:</label>
-    <select id="areaSelect" aria-label="Oblast"></select>
+    <div class="control-row">
+      <select id="areaSelect" aria-label="Oblast"></select>
+      <button id="addArea" type="button" title="Přidat oblast" aria-label="Přidat oblast">➕</button>
+      <button id="deleteArea" type="button" title="Smazat oblast" aria-label="Smazat oblast">🗑️</button>
+    </div>
   </div>
   <div class="field">
-    <label for="subareaSelect">Podoblast:</label>
-    <select id="subareaSelect" aria-label="Podoblast"></select>
+    <label for="areaNameInput">Název oblasti:</label>
+    <input id="areaNameInput" type="text" spellcheck="false">
   </div>
+  <hr class="divider">
+
+  <div class="field">
+    <label for="subareaSelect">Podoblast:</label>
+    <div class="control-row">
+      <select id="subareaSelect" aria-label="Podoblast"></select>
+      <button id="addSubarea" type="button" title="Přidat podoblast" aria-label="Přidat podoblast">➕</button>
+      <button id="deleteSubarea" type="button" title="Smazat podoblast" aria-label="Smazat podoblast">🗑️</button>
+    </div>
+  </div>
+  <div class="field">
+    <label for="subareaNameInput">Název podoblasti:</label>
+    <input id="subareaNameInput" type="text" spellcheck="false">
+  </div>
+  <hr class="divider">
 
   <p id="cardPosition" class="position"></p>
 
@@ -93,8 +125,17 @@ const BUNDLED_SPELLING_FILES=["SpellingAlphabets/English NATO ITU spelling.json"
 const BUNDLED_FLASHCARD_FILES=["Flashcards/Český test ČTÚ pro HAREC A.json","Flashcards/Český návod.json","Flashcards/English Tutorial.json"];
 
 const deckSelect=document.getElementById("deckSelect");
+const deckShortNameInput=document.getElementById("deckShortName");
+const deckLongNameInput=document.getElementById("deckLongName");
+const deckLanguageInput=document.getElementById("deckLanguage");
 const areaSelect=document.getElementById("areaSelect");
+const areaNameInput=document.getElementById("areaNameInput");
+const addAreaBtn=document.getElementById("addArea");
+const deleteAreaBtn=document.getElementById("deleteArea");
 const subareaSelect=document.getElementById("subareaSelect");
+const subareaNameInput=document.getElementById("subareaNameInput");
+const addSubareaBtn=document.getElementById("addSubarea");
+const deleteSubareaBtn=document.getElementById("deleteSubarea");
 const cardPosition=document.getElementById("cardPosition");
 const prevCardBtn=document.getElementById("prevCard");
 const nextCardBtn=document.getElementById("nextCard");
@@ -199,17 +240,37 @@ function renderDeckSelect(){
   if(ids.length)deckSelect.value=position.deckId&&flashcardLibrary[position.deckId]?position.deckId:ids[0];
 }
 
+function generateUniqueName(existingNames,base){
+  if(!existingNames.includes(base))return base;
+  let n=2;
+  while(existingNames.includes(`${base} ${n}`))n++;
+  return `${base} ${n}`;
+}
+
 function renderNavSelects(){
   const deck=getDeck();
   const hasDeck=!!deck;
   areaSelect.disabled=subareaSelect.disabled=prevCardBtn.disabled=nextCardBtn.disabled=
-    speakFrontBtn.disabled=speakBackBtn.disabled=exportDeckBtn.disabled=!hasDeck;
-  if(!hasDeck){areaSelect.replaceChildren();subareaSelect.replaceChildren();return}
+    speakFrontBtn.disabled=speakBackBtn.disabled=exportDeckBtn.disabled=
+    deckShortNameInput.disabled=deckLongNameInput.disabled=deckLanguageInput.disabled=
+    areaNameInput.disabled=addAreaBtn.disabled=deleteAreaBtn.disabled=
+    subareaNameInput.disabled=addSubareaBtn.disabled=deleteSubareaBtn.disabled=!hasDeck;
+  if(!hasDeck){
+    areaSelect.replaceChildren();subareaSelect.replaceChildren();
+    deckShortNameInput.value=deckLongNameInput.value=deckLanguageInput.value="";
+    areaNameInput.value=subareaNameInput.value="";
+    return;
+  }
+  deckShortNameInput.value=deck.shortName;
+  deckLongNameInput.value=deck.longName;
+  deckLanguageInput.value=deck.language;
   areaSelect.replaceChildren(...deck.areas.map((area,index)=>{const option=document.createElement("option");option.value=index;option.textContent=area.name;return option}));
   areaSelect.value=position.areaIndex;
-  const subareas=deck.areas[position.areaIndex].subareas;
-  subareaSelect.replaceChildren(...subareas.map((subarea,index)=>{const option=document.createElement("option");option.value=index;option.textContent=subarea.name;return option}));
+  const area=deck.areas[position.areaIndex];
+  areaNameInput.value=area.name;
+  subareaSelect.replaceChildren(...area.subareas.map((subarea,index)=>{const option=document.createElement("option");option.value=index;option.textContent=subarea.name;return option}));
   subareaSelect.value=position.subareaIndex;
+  subareaNameInput.value=area.subareas[position.subareaIndex].name;
 }
 
 function renderCard(){
@@ -236,6 +297,92 @@ function renderAll(){clampPosition();renderNavSelects();renderCard();savePositio
 deckSelect.addEventListener("change",()=>{position={deckId:deckSelect.value,areaIndex:0,subareaIndex:0,cardIndex:0};renderAll()});
 areaSelect.addEventListener("change",()=>{position.areaIndex=Number(areaSelect.value);position.subareaIndex=0;position.cardIndex=0;renderAll()});
 subareaSelect.addEventListener("change",()=>{position.subareaIndex=Number(subareaSelect.value);position.cardIndex=0;renderAll()});
+
+deckShortNameInput.addEventListener("change",()=>{
+  const deck=getDeck();if(!deck)return;
+  const newId=deckShortNameInput.value.trim();
+  if(!newId){deckShortNameInput.value=deck.shortName;return}
+  if(newId===deck.shortName)return;
+  if(flashcardLibrary[newId]){window.alert("Balíček s tímto krátkým názvem už existuje.");deckShortNameInput.value=deck.shortName;return}
+  delete flashcardLibrary[deck.shortName];
+  deck.shortName=newId;
+  flashcardLibrary[newId]=deck;
+  position.deckId=newId;
+  saveFlashcardLibrary();
+  renderDeckSelect();
+  savePosition();
+});
+deckLongNameInput.addEventListener("input",()=>{
+  const deck=getDeck();if(!deck)return;
+  deck.longName=deckLongNameInput.value;
+  saveFlashcardLibrary();
+  const option=deckSelect.querySelector(`option[value="${CSS.escape(deck.shortName)}"]`);
+  if(option)option.textContent=deck.longName;
+});
+deckLanguageInput.addEventListener("input",()=>{
+  const deck=getDeck();if(!deck)return;
+  deck.language=deckLanguageInput.value;
+  saveFlashcardLibrary();
+});
+
+areaNameInput.addEventListener("input",()=>{
+  const deck=getDeck();if(!deck)return;
+  const area=deck.areas[position.areaIndex];
+  area.name=areaNameInput.value;
+  saveFlashcardLibrary();
+  const option=areaSelect.options[position.areaIndex];
+  if(option)option.textContent=area.name;
+});
+subareaNameInput.addEventListener("input",()=>{
+  const deck=getDeck();if(!deck)return;
+  const subarea=deck.areas[position.areaIndex].subareas[position.subareaIndex];
+  subarea.name=subareaNameInput.value;
+  saveFlashcardLibrary();
+  const option=subareaSelect.options[position.subareaIndex];
+  if(option)option.textContent=subarea.name;
+});
+
+addAreaBtn.addEventListener("click",()=>{
+  const deck=getDeck();if(!deck)return;
+  const name=generateUniqueName(deck.areas.map(a=>a.name),"Nová oblast");
+  deck.areas.push({name,subareas:[{name:"Nová podoblast",cards:[{front:"",back:""}]}]});
+  position.areaIndex=deck.areas.length-1;position.subareaIndex=0;position.cardIndex=0;
+  saveFlashcardLibrary();
+  renderAll();
+});
+deleteAreaBtn.addEventListener("click",()=>{
+  const deck=getDeck();if(!deck)return;
+  if(deck.areas.length<=1){window.alert("Balíček musí obsahovat alespoň jednu oblast.");return}
+  const area=deck.areas[position.areaIndex];
+  if(!window.confirm(`Opravdu smazat oblast „${area.name}“ včetně všech jejích karet?`))return;
+  deck.areas.splice(position.areaIndex,1);
+  position.areaIndex=Math.min(position.areaIndex,deck.areas.length-1);
+  position.subareaIndex=0;position.cardIndex=0;
+  saveFlashcardLibrary();
+  renderAll();
+});
+
+addSubareaBtn.addEventListener("click",()=>{
+  const deck=getDeck();if(!deck)return;
+  const area=deck.areas[position.areaIndex];
+  const name=generateUniqueName(area.subareas.map(s=>s.name),"Nová podoblast");
+  area.subareas.push({name,cards:[{front:"",back:""}]});
+  position.subareaIndex=area.subareas.length-1;position.cardIndex=0;
+  saveFlashcardLibrary();
+  renderAll();
+});
+deleteSubareaBtn.addEventListener("click",()=>{
+  const deck=getDeck();if(!deck)return;
+  const area=deck.areas[position.areaIndex];
+  if(area.subareas.length<=1){window.alert("Oblast musí obsahovat alespoň jednu podoblast.");return}
+  const subarea=area.subareas[position.subareaIndex];
+  if(!window.confirm(`Opravdu smazat podoblast „${subarea.name}“ včetně všech jejích karet?`))return;
+  area.subareas.splice(position.subareaIndex,1);
+  position.subareaIndex=Math.min(position.subareaIndex,area.subareas.length-1);
+  position.cardIndex=0;
+  saveFlashcardLibrary();
+  renderAll();
+});
 
 function nextCard(){
   const deck=getDeck();if(!deck)return;

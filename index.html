@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,91 +15,98 @@
   :root{--chassis:#12181a;--panel:#1b2426;--panel-2:#212c2e;--border:#2a3436;--text:#eae6d9;--muted:#8b9a95;--accent:#ffb020;--green:#6fe3a0;--sans:-apple-system,"Segoe UI",Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
   @media(prefers-color-scheme:light){:root{--chassis:#eee8d9;--panel:#fff;--panel-2:#efe8d6;--border:#d9d2bd;--text:#2b2a25;--muted:#6b6558;--accent:#a85d00;--green:#1f8a5c}}
   *{box-sizing:border-box}html,body{margin:0;min-height:100%}body{background:var(--chassis);color:var(--text);font-family:var(--sans);padding:24px 16px 48px;display:flex;justify-content:center}.wrap{width:100%;max-width:640px}header{text-align:center;margin:8px 0 32px}h1{font-family:Georgia,"Times New Roman",serif;font-size:28px;letter-spacing:2px;color:var(--accent);margin:0}.field{margin:0 0 22px}label{display:block;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.3px;margin:0 0 7px}input,textarea,select{width:100%;font:15px var(--sans);color:var(--text);background:var(--panel);border:1px solid var(--border);border-radius:8px;outline:none}input,select{height:44px;padding:0 12px}textarea{min-height:110px;padding:12px;resize:vertical;line-height:1.45}input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent)}.control-row{display:flex;gap:6px}.control-row select{flex:1;min-width:0}button{width:44px;height:44px;flex:0 0 44px;border:1px solid var(--border);border-radius:8px;background:var(--panel);color:var(--text);font-size:19px;cursor:pointer}button:hover{background:var(--panel-2)}button:active{transform:translateY(1px)}button:disabled{opacity:.4;cursor:default}.test-row{display:flex;align-items:flex-start;gap:8px}.test-row textarea{flex:1}.test-row input{flex:1;margin:0}.speak-btn{color:var(--green)}.status{min-height:18px;margin:4px 0 0;color:var(--muted);font-size:12px}.hidden{display:none}.nav-row{display:flex;gap:8px}.nav-row button{width:auto;flex:1;font-size:15px;font-family:var(--sans)}.position{text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px;margin:0 0 14px}fieldset{border:1px solid var(--border);border-radius:8px;padding:14px;margin:0 0 22px}legend{padding:0 6px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.3px}.divider{border:none;border-top:1px solid var(--border);margin:0 0 22px}
+  .lang-switch{display:flex;justify-content:center;gap:6px;margin-top:14px}.lang-switch button{width:auto;height:28px;flex:0 0 auto;padding:0 14px;font-size:12px;font-family:var(--mono);letter-spacing:.5px;color:var(--muted)}.lang-switch button.active{color:var(--accent);border-color:var(--accent)}
 </style>
 </head>
 <body>
 <main class="wrap">
-  <header><h1>Flashcards Editor</h1></header>
+  <header>
+    <h1>Flashcards Editor</h1>
+    <div class="lang-switch" role="group" aria-label="Language / Jazyk">
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-lang="cs">CS</button>
+    </div>
+  </header>
 
   <div class="field">
-    <label for="deckSelect">Balíček karet:</label>
+    <label for="deckSelect" data-i18n="deckSelectLabel">Card deck:</label>
     <div class="control-row">
-      <select id="deckSelect" aria-label="Balíček karet"></select>
-      <button id="importDeck" type="button" title="Importovat balíček JSON" aria-label="Importovat balíček JSON">📥</button>
-      <button id="exportDeck" type="button" title="Exportovat balíček JSON" aria-label="Exportovat balíček JSON">📤</button>
+      <select id="deckSelect" data-i18n-aria="deckSelectAria" aria-label="Card deck"></select>
+      <button id="importDeck" type="button" data-i18n-title="importDeckTitle" title="Import deck JSON" aria-label="Import deck JSON">📥</button>
+      <button id="exportDeck" type="button" data-i18n-title="exportDeckTitle" title="Export deck JSON" aria-label="Export deck JSON">📤</button>
       <input id="deckFile" class="hidden" type="file" accept="application/json,.json">
     </div>
   </div>
   <div class="field">
-    <label for="deckShortName">Krátký název balíčku:</label>
+    <label for="deckShortName" data-i18n="deckShortNameLabel">Deck short name:</label>
     <input id="deckShortName" type="text" spellcheck="false">
   </div>
   <div class="field">
-    <label for="deckShortNameTts">Krátký název — text pro TTS (nepovinné):</label>
+    <label for="deckShortNameTts" data-i18n="deckShortNameTtsLabel">Short name — TTS text (optional):</label>
     <div class="test-row">
-      <input id="deckShortNameTts" type="text" placeholder="Prázdné = použije se krátký název výše" spellcheck="false">
-      <button id="speakDeckShortName" class="speak-btn" type="button" title="Přehrát krátký název" aria-label="Přehrát krátký název">🔊</button>
+      <input id="deckShortNameTts" type="text" data-i18n-placeholder="deckShortNameTtsPlaceholder" placeholder="Empty = use the short name above" spellcheck="false">
+      <button id="speakDeckShortName" class="speak-btn" type="button" data-i18n-title="speakDeckShortNameTitle" title="Play short name" aria-label="Play short name">🔊</button>
     </div>
   </div>
   <div class="field">
-    <label for="deckLongName">Popis balíčku:</label>
+    <label for="deckLongName" data-i18n="deckLongNameLabel">Deck description:</label>
     <input id="deckLongName" type="text" spellcheck="false">
   </div>
   <div class="field">
-    <label for="deckLongNameTts">Popis — text pro TTS (nepovinné):</label>
+    <label for="deckLongNameTts" data-i18n="deckLongNameTtsLabel">Description — TTS text (optional):</label>
     <div class="test-row">
-      <input id="deckLongNameTts" type="text" placeholder="Prázdné = použije se popis výše" spellcheck="false">
-      <button id="speakDeckLongName" class="speak-btn" type="button" title="Přehrát popis" aria-label="Přehrát popis">🔊</button>
+      <input id="deckLongNameTts" type="text" data-i18n-placeholder="deckLongNameTtsPlaceholder" placeholder="Empty = use the description above" spellcheck="false">
+      <button id="speakDeckLongName" class="speak-btn" type="button" data-i18n-title="speakDeckLongNameTitle" title="Play description" aria-label="Play description">🔊</button>
     </div>
   </div>
   <div class="field">
-    <label for="deckLanguage">Jazyk balíčku (např. cs-CZ):</label>
+    <label for="deckLanguage" data-i18n="deckLanguageLabel">Deck language (e.g. en-US):</label>
     <input id="deckLanguage" type="text" spellcheck="false">
   </div>
   <hr class="divider">
 
   <div class="field">
-    <label for="areaSelect">Oblast:</label>
+    <label for="areaSelect" data-i18n="areaSelectLabel">Area:</label>
     <div class="control-row">
-      <select id="areaSelect" aria-label="Oblast"></select>
-      <button id="addArea" type="button" title="Přidat oblast" aria-label="Přidat oblast">➕</button>
-      <button id="deleteArea" type="button" title="Smazat oblast" aria-label="Smazat oblast">🗑️</button>
+      <select id="areaSelect" data-i18n-aria="areaSelectAria" aria-label="Area"></select>
+      <button id="addArea" type="button" data-i18n-title="addAreaTitle" title="Add area" aria-label="Add area">➕</button>
+      <button id="deleteArea" type="button" data-i18n-title="deleteAreaTitle" title="Delete area" aria-label="Delete area">🗑️</button>
     </div>
   </div>
   <div class="field">
-    <label for="areaNameInput">Název oblasti:</label>
+    <label for="areaNameInput" data-i18n="areaNameLabel">Area name:</label>
     <input id="areaNameInput" type="text" spellcheck="false">
   </div>
   <div class="field">
-    <label for="areaNameTtsInput">Název oblasti — text pro TTS (nepovinné):</label>
+    <label for="areaNameTtsInput" data-i18n="areaNameTtsLabel">Area name — TTS text (optional):</label>
     <div class="test-row">
-      <input id="areaNameTtsInput" type="text" placeholder="Prázdné = použije se název výše" spellcheck="false">
-      <button id="speakAreaName" class="speak-btn" type="button" title="Přehrát název oblasti" aria-label="Přehrát název oblasti">🔊</button>
+      <input id="areaNameTtsInput" type="text" data-i18n-placeholder="nameAbovePlaceholder" placeholder="Empty = use the name above" spellcheck="false">
+      <button id="speakAreaName" class="speak-btn" type="button" data-i18n-title="speakAreaNameTitle" title="Play area name" aria-label="Play area name">🔊</button>
     </div>
   </div>
   <div class="field">
-    <label for="maxErrorsInput">Max. počet chyb v oblasti (nepovinné):</label>
+    <label for="maxErrorsInput" data-i18n="maxErrorsLabel">Max. number of errors in area (optional):</label>
     <input id="maxErrorsInput" type="number" min="0" step="1">
   </div>
   <hr class="divider">
 
   <div class="field">
-    <label for="subareaSelect">Podoblast:</label>
+    <label for="subareaSelect" data-i18n="subareaSelectLabel">Subarea:</label>
     <div class="control-row">
-      <select id="subareaSelect" aria-label="Podoblast"></select>
-      <button id="addSubarea" type="button" title="Přidat podoblast" aria-label="Přidat podoblast">➕</button>
-      <button id="deleteSubarea" type="button" title="Smazat podoblast" aria-label="Smazat podoblast">🗑️</button>
+      <select id="subareaSelect" data-i18n-aria="subareaSelectAria" aria-label="Subarea"></select>
+      <button id="addSubarea" type="button" data-i18n-title="addSubareaTitle" title="Add subarea" aria-label="Add subarea">➕</button>
+      <button id="deleteSubarea" type="button" data-i18n-title="deleteSubareaTitle" title="Delete subarea" aria-label="Delete subarea">🗑️</button>
     </div>
   </div>
   <div class="field">
-    <label for="subareaNameInput">Název podoblasti:</label>
+    <label for="subareaNameInput" data-i18n="subareaNameLabel">Subarea name:</label>
     <input id="subareaNameInput" type="text" spellcheck="false">
   </div>
   <div class="field">
-    <label for="subareaNameTtsInput">Název podoblasti — text pro TTS (nepovinné):</label>
+    <label for="subareaNameTtsInput" data-i18n="subareaNameTtsLabel">Subarea name — TTS text (optional):</label>
     <div class="test-row">
-      <input id="subareaNameTtsInput" type="text" placeholder="Prázdné = použije se název výše" spellcheck="false">
-      <button id="speakSubareaName" class="speak-btn" type="button" title="Přehrát název podoblasti" aria-label="Přehrát název podoblasti">🔊</button>
+      <input id="subareaNameTtsInput" type="text" data-i18n-placeholder="nameAbovePlaceholder" placeholder="Empty = use the name above" spellcheck="false">
+      <button id="speakSubareaName" class="speak-btn" type="button" data-i18n-title="speakSubareaNameTitle" title="Play subarea name" aria-label="Play subarea name">🔊</button>
     </div>
   </div>
   <hr class="divider">
@@ -107,41 +114,41 @@
   <p id="cardPosition" class="position"></p>
 
   <div class="field nav-row">
-    <button id="prevCard" type="button">◀ Předchozí</button>
-    <button id="nextCard" type="button">Další ▶</button>
+    <button id="prevCard" type="button" data-i18n="prevCardBtn">◀ Previous</button>
+    <button id="nextCard" type="button" data-i18n="nextCardBtn">Next ▶</button>
   </div>
 
   <div class="field">
-    <label for="frontText">Přední strana — text:</label>
+    <label for="frontText" data-i18n="frontTextLabel">Front side — text:</label>
     <textarea id="frontText" spellcheck="false"></textarea>
   </div>
   <div class="field">
-    <label for="frontTtsText">Přední strana — text pro TTS (nepovinné):</label>
+    <label for="frontTtsText" data-i18n="frontTtsTextLabel">Front side — TTS text (optional):</label>
     <div class="test-row">
-      <textarea id="frontTtsText" placeholder="Prázdné = použije se text výše" spellcheck="false"></textarea>
-      <button id="speakFront" class="speak-btn" type="button" title="Přehrát přední stranu" aria-label="Přehrát přední stranu">🔊</button>
+      <textarea id="frontTtsText" data-i18n-placeholder="textAbovePlaceholder" placeholder="Empty = use the text above" spellcheck="false"></textarea>
+      <button id="speakFront" class="speak-btn" type="button" data-i18n-title="speakFrontTitle" title="Play front side" aria-label="Play front side">🔊</button>
     </div>
   </div>
 
   <div class="field">
-    <label for="backText">Zadní strana — text:</label>
+    <label for="backText" data-i18n="backTextLabel">Back side — text:</label>
     <textarea id="backText" spellcheck="false"></textarea>
   </div>
   <div class="field">
-    <label for="backTtsText">Zadní strana — text pro TTS (nepovinné):</label>
+    <label for="backTtsText" data-i18n="backTtsTextLabel">Back side — TTS text (optional):</label>
     <div class="test-row">
-      <textarea id="backTtsText" placeholder="Prázdné = použije se text výše" spellcheck="false"></textarea>
-      <button id="speakBack" class="speak-btn" type="button" title="Přehrát zadní stranu" aria-label="Přehrát zadní stranu">🔊</button>
+      <textarea id="backTtsText" data-i18n-placeholder="textAbovePlaceholder" placeholder="Empty = use the text above" spellcheck="false"></textarea>
+      <button id="speakBack" class="speak-btn" type="button" data-i18n-title="speakBackTitle" title="Play back side" aria-label="Play back side">🔊</button>
     </div>
   </div>
 
   <fieldset>
-    <legend>Nastavení TTS</legend>
+    <legend data-i18n="ttsSettingsLegend">TTS settings</legend>
     <div class="field" style="margin-bottom:0">
-      <label for="spellingAlphabet">Hláskovací abeceda (pro značky {X}):</label>
+      <label for="spellingAlphabet" data-i18n="spellingAlphabetLabel">Spelling alphabet (for {X} markers):</label>
       <div class="control-row">
-        <select id="spellingAlphabet" aria-label="Hláskovací abeceda"></select>
-        <button id="importSpelling" type="button" title="Importovat hláskovací abecedu" aria-label="Importovat hláskovací abecedu">📥</button>
+        <select id="spellingAlphabet" data-i18n-aria="spellingAlphabetAria" aria-label="Spelling alphabet"></select>
+        <button id="importSpelling" type="button" data-i18n-title="importSpellingTitle" title="Import spelling alphabet" aria-label="Import spelling alphabet">📥</button>
         <input id="spellingFile" class="hidden" type="file" accept="application/json,.json">
       </div>
     </div>
@@ -155,6 +162,125 @@ const SPELLING_KEY="ttsspeller_spelllib_v1";const ACTIVE_SPELLING_KEY="ttsspelle
 const FLASHCARD_KEY="oktrainer_flashcards_v1";const POSITION_KEY="oktrainer_position_v1";
 const BUNDLED_SPELLING_FILES=["SpellingAlphabets/English NATO ITU spelling.json","SpellingAlphabets/Česká hlásková abeceda.json"];
 const BUNDLED_FLASHCARD_FILES=["Flashcards/Český test ČTÚ pro HAREC A.json","Flashcards/Český návod.json","Flashcards/English Tutorial.json"];
+const LANG_KEY="oktrainer_editor_lang_v1";
+
+const I18N={
+  en:{
+    deckSelectLabel:"Card deck:",deckSelectAria:"Card deck",
+    importDeckTitle:"Import deck JSON",exportDeckTitle:"Export deck JSON",
+    deckShortNameLabel:"Deck short name:",
+    deckShortNameTtsLabel:"Short name — TTS text (optional):",deckShortNameTtsPlaceholder:"Empty = use the short name above",
+    speakDeckShortNameTitle:"Play short name",
+    deckLongNameLabel:"Deck description:",
+    deckLongNameTtsLabel:"Description — TTS text (optional):",deckLongNameTtsPlaceholder:"Empty = use the description above",
+    speakDeckLongNameTitle:"Play description",
+    deckLanguageLabel:"Deck language (e.g. en-US):",
+    areaSelectLabel:"Area:",areaSelectAria:"Area",
+    addAreaTitle:"Add area",deleteAreaTitle:"Delete area",
+    areaNameLabel:"Area name:",
+    areaNameTtsLabel:"Area name — TTS text (optional):",
+    speakAreaNameTitle:"Play area name",
+    maxErrorsLabel:"Max. number of errors in area (optional):",
+    subareaSelectLabel:"Subarea:",subareaSelectAria:"Subarea",
+    addSubareaTitle:"Add subarea",deleteSubareaTitle:"Delete subarea",
+    subareaNameLabel:"Subarea name:",
+    subareaNameTtsLabel:"Subarea name — TTS text (optional):",
+    speakSubareaNameTitle:"Play subarea name",
+    nameAbovePlaceholder:"Empty = use the name above",
+    prevCardBtn:"◀ Previous",nextCardBtn:"Next ▶",
+    frontTextLabel:"Front side — text:",
+    frontTtsTextLabel:"Front side — TTS text (optional):",
+    speakFrontTitle:"Play front side",
+    backTextLabel:"Back side — text:",
+    backTtsTextLabel:"Back side — TTS text (optional):",
+    speakBackTitle:"Play back side",
+    textAbovePlaceholder:"Empty = use the text above",
+    ttsSettingsLegend:"TTS settings",
+    spellingAlphabetLabel:"Spelling alphabet (for {X} markers):",spellingAlphabetAria:"Spelling alphabet",
+    importSpellingTitle:"Import spelling alphabet",
+    noDeckLoaded:"No flashcard decks are loaded.",
+    cardPositionText:(areaName,subareaName,index,total)=>`${areaName} › ${subareaName} — card ${index}/${total}`,
+    newAreaName:"New area",newSubareaName:"New subarea",
+    deckShortNameExists:"A deck with this short name already exists.",
+    deckNeedsArea:"A deck must contain at least one area.",
+    confirmDeleteArea:name=>`Really delete area "${name}" including all its cards?`,
+    areaNeedsSubarea:"An area must contain at least one subarea.",
+    confirmDeleteSubarea:name=>`Really delete subarea "${name}" including all its cards?`,
+    playing:"Playing...",
+    playbackFailed:"Playback failed.",
+    speechNotSupported:"This browser does not support speech synthesis.",
+    invalidSpellingFormat:"Invalid spelling alphabet format",
+    invalidDeckFormat:"Invalid flashcard deck format",
+    deckImported:name=>`Deck "${name}" was imported.`
+  },
+  cs:{
+    deckSelectLabel:"Balíček karet:",deckSelectAria:"Balíček karet",
+    importDeckTitle:"Importovat balíček JSON",exportDeckTitle:"Exportovat balíček JSON",
+    deckShortNameLabel:"Krátký název balíčku:",
+    deckShortNameTtsLabel:"Krátký název — text pro TTS (nepovinné):",deckShortNameTtsPlaceholder:"Prázdné = použije se krátký název výše",
+    speakDeckShortNameTitle:"Přehrát krátký název",
+    deckLongNameLabel:"Popis balíčku:",
+    deckLongNameTtsLabel:"Popis — text pro TTS (nepovinné):",deckLongNameTtsPlaceholder:"Prázdné = použije se popis výše",
+    speakDeckLongNameTitle:"Přehrát popis",
+    deckLanguageLabel:"Jazyk balíčku (např. cs-CZ):",
+    areaSelectLabel:"Oblast:",areaSelectAria:"Oblast",
+    addAreaTitle:"Přidat oblast",deleteAreaTitle:"Smazat oblast",
+    areaNameLabel:"Název oblasti:",
+    areaNameTtsLabel:"Název oblasti — text pro TTS (nepovinné):",
+    speakAreaNameTitle:"Přehrát název oblasti",
+    maxErrorsLabel:"Max. počet chyb v oblasti (nepovinné):",
+    subareaSelectLabel:"Podoblast:",subareaSelectAria:"Podoblast",
+    addSubareaTitle:"Přidat podoblast",deleteSubareaTitle:"Smazat podoblast",
+    subareaNameLabel:"Název podoblasti:",
+    subareaNameTtsLabel:"Název podoblasti — text pro TTS (nepovinné):",
+    speakSubareaNameTitle:"Přehrát název podoblasti",
+    nameAbovePlaceholder:"Prázdné = použije se název výše",
+    prevCardBtn:"◀ Předchozí",nextCardBtn:"Další ▶",
+    frontTextLabel:"Přední strana — text:",
+    frontTtsTextLabel:"Přední strana — text pro TTS (nepovinné):",
+    speakFrontTitle:"Přehrát přední stranu",
+    backTextLabel:"Zadní strana — text:",
+    backTtsTextLabel:"Zadní strana — text pro TTS (nepovinné):",
+    speakBackTitle:"Přehrát zadní stranu",
+    textAbovePlaceholder:"Prázdné = použije se text výše",
+    ttsSettingsLegend:"Nastavení TTS",
+    spellingAlphabetLabel:"Hláskovací abeceda (pro značky {X}):",spellingAlphabetAria:"Hláskovací abeceda",
+    importSpellingTitle:"Importovat hláskovací abecedu",
+    noDeckLoaded:"Nejsou načteny žádné balíčky karet.",
+    cardPositionText:(areaName,subareaName,index,total)=>`${areaName} › ${subareaName} — karta ${index}/${total}`,
+    newAreaName:"Nová oblast",newSubareaName:"Nová podoblast",
+    deckShortNameExists:"Balíček s tímto krátkým názvem už existuje.",
+    deckNeedsArea:"Balíček musí obsahovat alespoň jednu oblast.",
+    confirmDeleteArea:name=>`Opravdu smazat oblast „${name}“ včetně všech jejích karet?`,
+    areaNeedsSubarea:"Oblast musí obsahovat alespoň jednu podoblast.",
+    confirmDeleteSubarea:name=>`Opravdu smazat podoblast „${name}“ včetně všech jejích karet?`,
+    playing:"Přehrávám...",
+    playbackFailed:"Přehrávání se nezdařilo.",
+    speechNotSupported:"Tento prohlížeč nepodporuje syntézu řeči.",
+    invalidSpellingFormat:"Neplatný formát hláskovací abecedy",
+    invalidDeckFormat:"Neplatný formát balíčku flashcards",
+    deckImported:name=>`Balíček „${name}“ byl naimportován.`
+  }
+};
+let currentLang=localStorage.getItem(LANG_KEY)||"en";
+if(!I18N[currentLang])currentLang="en";
+function t(key,...args){const entry=(I18N[currentLang]||I18N.en)[key];return typeof entry==="function"?entry(...args):entry}
+function applyStaticTranslations(){
+  document.documentElement.lang=currentLang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.textContent=t(el.dataset.i18n)});
+  document.querySelectorAll("[data-i18n-aria]").forEach(el=>{el.setAttribute("aria-label",t(el.dataset.i18nAria))});
+  document.querySelectorAll("[data-i18n-title]").forEach(el=>{const text=t(el.dataset.i18nTitle);el.title=text;el.setAttribute("aria-label",text)});
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{el.placeholder=t(el.dataset.i18nPlaceholder)});
+  document.querySelectorAll(".lang-btn").forEach(btn=>btn.classList.toggle("active",btn.dataset.lang===currentLang));
+}
+function setLanguage(lang){
+  if(!I18N[lang]||lang===currentLang)return;
+  currentLang=lang;
+  try{localStorage.setItem(LANG_KEY,currentLang)}catch(e){}
+  applyStaticTranslations();
+  renderCard();
+}
+document.querySelectorAll(".lang-btn").forEach(btn=>btn.addEventListener("click",()=>setLanguage(btn.dataset.lang)));
 
 const deckSelect=document.getElementById("deckSelect");
 const deckShortNameInput=document.getElementById("deckShortName");
@@ -202,7 +328,7 @@ async function loadBundledSpelling(){
 function renderSpellingAlphabets(){const ids=Object.keys(spellingLibrary).sort((a,b)=>a===BUILTIN_SPELLING.spellId?-1:b===BUILTIN_SPELLING.spellId?1:a.localeCompare(b));alphabetSelect.replaceChildren(...ids.map(id=>{const option=document.createElement("option");option.value=id;option.textContent=spellingLibrary[id].spellName||id;return option}));alphabetSelect.value=activeSpellingId}
 alphabetSelect.addEventListener("change",()=>{activeSpellingId=alphabetSelect.value;try{localStorage.setItem(ACTIVE_SPELLING_KEY,activeSpellingId)}catch(e){}});
 document.getElementById("importSpelling").addEventListener("click",()=>document.getElementById("spellingFile").click());
-document.getElementById("spellingFile").addEventListener("change",event=>{const file=event.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const pack=JSON.parse(reader.result);if(!pack||typeof pack.spellId!=="string"||typeof pack.spellName!=="string"||typeof pack.lang!=="string"||!pack.letters||typeof pack.letters!=="object")throw new Error("Neplatný formát hláskovací abecedy");spellingLibrary[pack.spellId]=pack;activeSpellingId=pack.spellId;saveSpellingLibrary();renderSpellingAlphabets()}catch(error){window.alert(error.message)}event.target.value=""};reader.readAsText(file,"utf-8")});
+document.getElementById("spellingFile").addEventListener("change",event=>{const file=event.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const pack=JSON.parse(reader.result);if(!pack||typeof pack.spellId!=="string"||typeof pack.spellName!=="string"||typeof pack.lang!=="string"||!pack.letters||typeof pack.letters!=="object")throw new Error(t("invalidSpellingFormat"));spellingLibrary[pack.spellId]=pack;activeSpellingId=pack.spellId;saveSpellingLibrary();renderSpellingAlphabets()}catch(error){window.alert(error.message)}event.target.value=""};reader.readAsText(file,"utf-8")});
 function buildSpeechSegments(text, language){
   const alphabet=spellingLibrary[activeSpellingId]||BUILTIN_SPELLING;
   const segments=[];
@@ -238,13 +364,13 @@ function speakSegments(segments, index=0){
   const voice=voices.find(candidate=>candidate.lang.toLowerCase()===language)||voices.find(candidate=>candidate.lang.toLowerCase().startsWith(language.split("-")[0]+"-"));
   if(voice)utterance.voice=voice;
   utterance.onend=()=>speakSegments(segments,index+1);
-  utterance.onerror=()=>{status.textContent="Přehrávání se nezdařilo."};
+  utterance.onerror=()=>{status.textContent=t("playbackFailed")};
   window.speechSynthesis.speak(utterance);
 }
 function speak(text,language){
   if(!text||!language)return;
-  if(!("speechSynthesis" in window)){status.textContent="Tento prohlížeč nepodporuje syntézu řeči.";return}
-  window.speechSynthesis.cancel();status.textContent="Přehrávám...";speakSegments(buildSpeechSegments(text,language));
+  if(!("speechSynthesis" in window)){status.textContent=t("speechNotSupported");return}
+  window.speechSynthesis.cancel();status.textContent=t("playing");speakSegments(buildSpeechSegments(text,language));
 }
 
 // --- Flashcard decks ---
@@ -341,7 +467,7 @@ function renderCard(){
   const deck=getDeck();
   const editable=[frontText,frontTtsText,backText,backTtsText];
   if(!deck){
-    cardPosition.textContent="Nejsou načteny žádné balíčky karet.";
+    cardPosition.textContent=t("noDeckLoaded");
     editable.forEach(field=>{field.value="";field.disabled=true});
     return;
   }
@@ -349,7 +475,7 @@ function renderCard(){
   const area=deck.areas[position.areaIndex];
   const subarea=area.subareas[position.subareaIndex];
   const card=subarea.cards[position.cardIndex];
-  cardPosition.textContent=`${area.name} › ${subarea.name} — karta ${position.cardIndex+1}/${subarea.cards.length}`;
+  cardPosition.textContent=t("cardPositionText",area.name,subarea.name,position.cardIndex+1,subarea.cards.length);
   frontText.value=card.front;
   frontTtsText.value=card.frontTts||"";
   backText.value=card.back;
@@ -367,7 +493,7 @@ deckShortNameInput.addEventListener("change",()=>{
   const newId=deckShortNameInput.value.trim();
   if(!newId){deckShortNameInput.value=deck.shortName;return}
   if(newId===deck.shortName)return;
-  if(flashcardLibrary[newId]){window.alert("Balíček s tímto krátkým názvem už existuje.");deckShortNameInput.value=deck.shortName;return}
+  if(flashcardLibrary[newId]){window.alert(t("deckShortNameExists"));deckShortNameInput.value=deck.shortName;return}
   delete flashcardLibrary[deck.shortName];
   deck.shortName=newId;
   flashcardLibrary[newId]=deck;
@@ -453,7 +579,7 @@ speakSubareaNameBtn.addEventListener("click",()=>{
 
 addAreaBtn.addEventListener("click",()=>{
   const deck=getDeck();if(!deck)return;
-  const name=generateUniqueName(deck.areas.map(a=>a.name),"Nová oblast");
+  const name=generateUniqueName(deck.areas.map(a=>a.name),t("newAreaName"));
   deck.areas.push({name,subareas:[{name:"Nová podoblast",cards:[{front:"",back:""}]}]});
   position.areaIndex=deck.areas.length-1;position.subareaIndex=0;position.cardIndex=0;
   saveFlashcardLibrary();
@@ -461,9 +587,9 @@ addAreaBtn.addEventListener("click",()=>{
 });
 deleteAreaBtn.addEventListener("click",()=>{
   const deck=getDeck();if(!deck)return;
-  if(deck.areas.length<=1){window.alert("Balíček musí obsahovat alespoň jednu oblast.");return}
+  if(deck.areas.length<=1){window.alert(t("deckNeedsArea"));return}
   const area=deck.areas[position.areaIndex];
-  if(!window.confirm(`Opravdu smazat oblast „${area.name}“ včetně všech jejích karet?`))return;
+  if(!window.confirm(t("confirmDeleteArea",area.name)))return;
   deck.areas.splice(position.areaIndex,1);
   position.areaIndex=Math.min(position.areaIndex,deck.areas.length-1);
   position.subareaIndex=0;position.cardIndex=0;
@@ -474,7 +600,7 @@ deleteAreaBtn.addEventListener("click",()=>{
 addSubareaBtn.addEventListener("click",()=>{
   const deck=getDeck();if(!deck)return;
   const area=deck.areas[position.areaIndex];
-  const name=generateUniqueName(area.subareas.map(s=>s.name),"Nová podoblast");
+  const name=generateUniqueName(area.subareas.map(s=>s.name),t("newSubareaName"));
   area.subareas.push({name,cards:[{front:"",back:""}]});
   position.subareaIndex=area.subareas.length-1;position.cardIndex=0;
   saveFlashcardLibrary();
@@ -483,9 +609,9 @@ addSubareaBtn.addEventListener("click",()=>{
 deleteSubareaBtn.addEventListener("click",()=>{
   const deck=getDeck();if(!deck)return;
   const area=deck.areas[position.areaIndex];
-  if(area.subareas.length<=1){window.alert("Oblast musí obsahovat alespoň jednu podoblast.");return}
+  if(area.subareas.length<=1){window.alert(t("areaNeedsSubarea"));return}
   const subarea=area.subareas[position.subareaIndex];
-  if(!window.confirm(`Opravdu smazat podoblast „${subarea.name}“ včetně všech jejích karet?`))return;
+  if(!window.confirm(t("confirmDeleteSubarea",subarea.name)))return;
   area.subareas.splice(position.subareaIndex,1);
   position.subareaIndex=Math.min(position.subareaIndex,area.subareas.length-1);
   position.cardIndex=0;
@@ -555,13 +681,13 @@ deckFile.addEventListener("change",event=>{
   reader.onload=()=>{
     try{
       const deck=JSON.parse(reader.result);
-      if(!isValidDeck(deck))throw new Error("Neplatný formát balíčku flashcards");
+      if(!isValidDeck(deck))throw new Error(t("invalidDeckFormat"));
       flashcardLibrary[deck.shortName]=deck;
       saveFlashcardLibrary();
       position={deckId:deck.shortName,areaIndex:0,subareaIndex:0,cardIndex:0};
       renderDeckSelect();
       renderAll();
-      status.textContent=`Balíček „${deck.longName}“ byl naimportován.`;
+      status.textContent=t("deckImported",deck.longName);
     }catch(error){window.alert(error.message)}
     event.target.value="";
   };
@@ -595,6 +721,7 @@ async function loadBundledFlashcards(){
   renderAll();
 }
 
+applyStaticTranslations();
 renderSpellingAlphabets();loadBundledSpelling();
 renderDeckSelect();renderAll();loadBundledFlashcards();
 if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));

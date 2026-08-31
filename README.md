@@ -23,7 +23,7 @@ A deck is identified by its **short name** and has a **language** set, in which 
 ## Working with the editor
 
 - All changes are saved **automatically** to the browser's storage (localStorage) — nothing needs to be saved manually.
-- At the top of the editor you select the **deck** you want to work on (`Balíček karet`). The 📥 button imports a deck JSON file, the 📤 button exports the currently selected deck back to a JSON file (for use in the OK Trainer app or as a backup).
+- At the top of the editor you select the **deck** you want to work on (`Card deck`). The 📥 button imports a deck JSON file, the 📤 button exports the currently selected deck back to a JSON file (for use in the OK Trainer app or as a backup).
 - Importing a deck with the same short name overwrites the existing deck of that name.
 - Below the deck selector are the **area** and **subarea** selectors (➕ adds a new one, 🗑️ deletes the currently selected one — deleting asks for confirmation, since it also deletes all the cards inside it). A new area/subarea is created with one empty card.
 - Cards within the selected subarea are browsed with the **◀ Previous / Next ▶** buttons; the current position is shown above them (e.g. `Area › Subarea — card 2/5`).
@@ -36,40 +36,40 @@ A deck is identified by its **short name** and has a **language** set, in which 
 
 | Field | Meaning |
 |---|---|
-| **Krátký název balíčku** (Short deck name) | The deck's unique identifier (must be unique among the stored decks). Also used as the exported file's name. |
-| **Popis balíčku** (Deck description) | The longer, readable name/description of the deck shown to the user in the trainer. |
-| **Popis — text pro TTS** (Description — TTS text) | Optional. Alternative text for playing the description as speech. Empty = the description above is used. |
-| **Jazyk balíčku (např. cs-CZ)** (Deck language) | The voice's language code used to read all text in the deck (outside of `{}` spans) — name, description, areas, subareas, and cards. Must match a language for which the system/browser has an installed voice (e.g. `cs-CZ`, `en-US`). |
+| **Deck short name** | The deck's unique identifier (must be unique among the stored decks). Also used as the exported file's name. |
+| **Deck description** | The longer, readable name/description of the deck shown to the user in the trainer. |
+| **Description — TTS text (optional)** | Optional. Alternative text for playing the description as speech. Empty = the description above is used. |
+| **Deck language (e.g. en-US)** | The voice's language code used to read all text in the deck (outside of `{}` spans) — name, description, areas, subareas, and cards. Must match a language for which the system/browser has an installed voice (e.g. `cs-CZ`, `en-US`). |
 
 ### Area
 
 | Field | Meaning |
 |---|---|
-| **Oblast** (Area) | Selects the current area in the deck; ➕ adds a new one, 🗑️ deletes the selected one (a deck must always have at least one area). |
-| **Název oblasti** (Area name) | The displayed name of the area (e.g. "Basics"). |
-| **Název oblasti — text pro TTS** (Area name — TTS text) | Optional. Alternative wording for playback as speech. Empty = the name above is used. |
-| **Max. počet chyb v oblasti** (Max. number of errors in the area) | Optional number. Used by the OK Trainer app to evaluate practice in that area (how many errors are still allowed in it, e.g. when simulating an exam). Empty = no limit. |
+| **Area** | Selects the current area in the deck; ➕ adds a new one, 🗑️ deletes the selected one (a deck must always have at least one area). |
+| **Area name** | The displayed name of the area (e.g. "Basics"). |
+| **Area name — TTS text (optional)** | Optional. Alternative wording for playback as speech. Empty = the name above is used. |
+| **Max. number of errors in area (optional)** | Optional number. Used by the OK Trainer app to evaluate practice in that area (how many errors are still allowed in it, e.g. when simulating an exam). Empty = no limit. |
 
 ### Subarea
 
 | Field | Meaning |
 |---|---|
-| **Podoblast** (Subarea) | Selects the current subarea within the area; ➕ adds a new one, 🗑️ deletes the selected one (an area must always have at least one subarea). |
-| **Název podoblasti** (Subarea name) | The displayed name of the subarea. |
-| **Název podoblasti — text pro TTS** (Subarea name — TTS text) | Optional. Alternative wording for playback as speech. Empty = the name above is used. |
+| **Subarea** | Selects the current subarea within the area; ➕ adds a new one, 🗑️ deletes the selected one (an area must always have at least one subarea). |
+| **Subarea name** | The displayed name of the subarea. |
+| **Subarea name — TTS text (optional)** | Optional. Alternative wording for playback as speech. Empty = the name above is used. |
 
 ### Card
 
 | Field | Meaning |
 |---|---|
-| **Přední strana — text** (Front side — text) | The question/front-side text of the card, as shown to the user. |
-| **Přední strana — text pro TTS** (Front side — TTS text) | Optional. Alternative wording for playing the front side as speech (useful when the text should be read differently than it is written — e.g. spelling out an abbreviation or using different punctuation). Empty = the text above is used. |
-| **Zadní strana — text** (Back side — text) | The answer/back-side text of the card. |
-| **Zadní strana — text pro TTS** (Back side — TTS text) | Optional, works the same way as for the front side. |
+| **Front side — text** | The question/front-side text of the card, as shown to the user. |
+| **Front side — TTS text (optional)** | Optional. Alternative wording for playing the front side as speech (useful when the text should be read differently than it is written — e.g. spelling out an abbreviation or using different punctuation). Empty = the text above is used. |
+| **Back side — text** | The answer/back-side text of the card. |
+| **Back side — TTS text (optional)** | Optional, works the same way as for the front side. |
 
 ### Spelling alphabet
 
-The **Hláskovací abeceda (pro značky {X})** (Spelling alphabet, for `{X}` markers) field selects which set of spelling words is used for text written inside curly braces (see the next section). The editor comes with a built-in **ITU/NATO English** alphabet (Alpha, Bravo, Charlie…) and a bundled **Czech spelling alphabet** (Adam, Božena, Cyril…). The 📥 button lets you import a custom spelling alphabet from a JSON file in this format:
+The **Spelling alphabet (for {X} markers)** field selects which set of spelling words is used for text written inside curly braces (see the next section). The editor comes with a built-in **ITU/NATO English** alphabet (Alpha, Bravo, Charlie…) and a bundled **Czech spelling alphabet** (Adam, Božena, Cyril…). The 📥 button lets you import a custom spelling alphabet from a JSON file in this format:
 
 ```json
 {
@@ -80,11 +80,11 @@ The **Hláskovací abeceda (pro značky {X})** (Spelling alphabet, for `{X}` mar
 }
 ```
 
-The selected spelling alphabet is a setting of the editor (not of a specific deck) and is applied whenever playing back any text containing a `{}` marker — in the deck's short name and description, in the area/subarea name, and in the card's front/back.
+The selected spelling alphabet is a setting of the editor (not of a specific deck) and is applied whenever playing back any text containing a `{}` marker — in the deck's description, in the area/subarea name, and in the card's front/back.
 
 ## Pronunciation and the `{}` markers
 
-The text of any field can be played back with the 🔊 button right in the editor — the voice used matches the **deck's language** (the "Jazyk balíčku" field).
+The text of any field can be played back with the 🔊 button right in the editor — the voice used matches the **deck's language** (the "Deck language" field).
 
 ### What `{X}` does
 

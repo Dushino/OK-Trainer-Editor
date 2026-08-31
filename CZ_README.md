@@ -35,9 +35,8 @@ Balíček je identifikován svým **krátkým názvem** a má nastavený **jazyk
 | Pole | Význam |
 |---|---|
 | **Krátký název balíčku** | Jednoznačný identifikátor balíčku (musí být v rámci uložených balíčků unikátní). Používá se i jako název exportovaného souboru. |
-| **Krátký název — text pro TTS** | Nepovinné. Pokud je vyplněné, použije se místo krátkého názvu při přehrávání hlasem (např. když krátký název obsahuje zkratky, které se mají vyslovit jinak). Prázdné pole = použije se krátký název. |
 | **Popis balíčku** | Delší, čitelný název/popis balíčku zobrazovaný uživateli v trenažéru. |
-| **Popis — text pro TTS** | Nepovinné. Alternativní text pro přehrání popisu hlasem. Prázdné pole = použije se popis výše. |
+| **Popis — text pro TTS (nepovinné)** | Nepovinné. Alternativní text pro přehrání popisu hlasem. Prázdné pole = použije se popis výše. |
 | **Jazyk balíčku (např. cs-CZ)** | Jazykový kód hlasu, kterým se čte veškerý text v balíčku (mimo úseků v `{}`) — název, popis, oblasti, podoblasti i kartičky. Musí odpovídat jazyku, pro který má systém/prohlížeč nainstalovaný hlas (např. `cs-CZ`, `en-US`). |
 
 ### Oblast
@@ -46,8 +45,8 @@ Balíček je identifikován svým **krátkým názvem** a má nastavený **jazyk
 |---|---|
 | **Oblast** | Výběr aktuální oblasti v balíčku; ➕ přidá novou, 🗑️ smaže vybranou (balíček musí mít vždy aspoň jednu oblast). |
 | **Název oblasti** | Zobrazovaný název oblasti (např. „Základy ovládání“). |
-| **Název oblasti — text pro TTS** | Nepovinné. Alternativní znění pro přehrání hlasem. Prázdné pole = použije se název výše. |
-| **Max. počet chyb v oblasti** | Nepovinné číslo. Používá ho trenažér OK Trainer k vyhodnocení procvičování dané oblasti (kolik chyb je v ní ještě přípustných, např. při simulaci zkoušky). Prázdné pole = bez omezení. |
+| **Název oblasti — text pro TTS (nepovinné)** | Nepovinné. Alternativní znění pro přehrání hlasem. Prázdné pole = použije se název výše. |
+| **Max. počet chyb v oblasti (nepovinné)** | Nepovinné číslo. Používá ho trenažér OK Trainer k vyhodnocení procvičování dané oblasti (kolik chyb je v ní ještě přípustných, např. při simulaci zkoušky). Prázdné pole = bez omezení. |
 
 ### Podoblast
 
@@ -55,16 +54,16 @@ Balíček je identifikován svým **krátkým názvem** a má nastavený **jazyk
 |---|---|
 | **Podoblast** | Výběr aktuální podoblasti v rámci oblasti; ➕ přidá novou, 🗑️ smaže vybranou (oblast musí mít vždy aspoň jednu podoblast). |
 | **Název podoblasti** | Zobrazovaný název podoblasti. |
-| **Název podoblasti — text pro TTS** | Nepovinné. Alternativní znění pro přehrání hlasem. Prázdné pole = použije se název výše. |
+| **Název podoblasti — text pro TTS (nepovinné)** | Nepovinné. Alternativní znění pro přehrání hlasem. Prázdné pole = použije se název výše. |
 
 ### Kartička
 
 | Pole | Význam |
 |---|---|
 | **Přední strana — text** | Text otázky/přední strany kartičky, jak se zobrazí uživateli. |
-| **Přední strana — text pro TTS** | Nepovinné. Alternativní znění pro přehrání přední strany hlasem (užitečné, když se má text přečíst jinak, než jak je napsaný — např. rozepsat zkratku nebo použít jinou interpunkci). Prázdné pole = použije se text výše. |
+| **Přední strana — text pro TTS (nepovinné)** | Nepovinné. Alternativní znění pro přehrání přední strany hlasem (užitečné, když se má text přečíst jinak, než jak je napsaný — např. rozepsat zkratku nebo použít jinou interpunkci). Prázdné pole = použije se text výše. |
 | **Zadní strana — text** | Text odpovědi/zadní strany kartičky. |
-| **Zadní strana — text pro TTS** | Nepovinné, funguje stejně jako u přední strany. |
+| **Zadní strana — text pro TTS (nepovinné)** | Nepovinné, funguje stejně jako u přední strany. |
 
 ### Hláskovací abeceda
 
@@ -79,7 +78,7 @@ Pole **Hláskovací abeceda (pro značky {X})** vybírá, která sada hláskovac
 }
 ```
 
-Vybraná hláskovací abeceda je nastavení editoru (ne konkrétního balíčku) a použije se při přehrávání kteréhokoli textu obsahujícího značku `{}` — u krátkého názvu i popisu balíčku, u názvu oblasti/podoblasti i u přední/zadní strany kartičky.
+Vybraná hláskovací abeceda je nastavení editoru (ne konkrétního balíčku) a použije se při přehrávání kteréhokoli textu obsahujícího značku `{}` — u popisu balíčku, u názvu oblasti/podoblasti i u přední/zadní strany kartičky.
 
 ## Výslovnost slov a značky `{}`
 
@@ -98,7 +97,7 @@ Příklad s vybranou abecedou ITU/NATO English:
 
 Se stejným textem, ale vybranou Českou hláskovací abecedou, se `{DA-DR}` přečte jako „David Adam až David Rudolf“.
 
-Text mimo `{}` se čte normálně, hlasem podle jazyka balíčku — hláskovací abeceda se na něj nevztahuje. Značka `{}` funguje ve všech přehratelných polích: krátký název a popis balíčku (i jejich TTS varianty), název oblasti a podoblasti (i jejich TTS varianty) a přední/zadní strana kartičky (i jejich TTS varianty).
+Text mimo `{}` se čte normálně, hlasem podle jazyka balíčku — hláskovací abeceda se na něj nevztahuje. Značka `{}` funguje ve všech přehratelných polích: popis balíčku (i jeho TTS variantu), název oblasti a podoblasti (i jejich TTS varianty) a přední/zadní strana kartičky (i jejich TTS varianty).
 
 Pokud znak uvnitř `{}` není v hláskovací abecedě definovaný (např. neobvyklý symbol), přečte se tak, jak je napsaný.
 

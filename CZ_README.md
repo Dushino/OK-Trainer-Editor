@@ -107,6 +107,10 @@ Text mimo `{}` se čte normálně jako běžná řeč. U delších úseků psan�
 
 Pokud tedy chcete zaručeně a konzistentně slyšet celá slova hláskovací abecedy (např. „Delta Alpha“, „David Adam“), musí být text obalený ve `{}`. Velká písmena bez `{}` (např. ABC) jsou hláskována systémem TTS (na Andoridu "á bé cé") a mohou být hláskována jinak na jiných zařízeních.
 
+## TTS na Windows
+
+Převod textu na řeč je ve Windows na mnohem horší úrovni než v Androidu. Jeho použití nedoporučuji. Pokud jej přesto musíte použít, bude pravděpodobně potřeba upravit texty tak, aby byla výslovnost srozumitelná. Za tímto účelem si vytvořte kopii stávajícího souboru (uložte ji pod jiným názvem) a tuto kopii pak upravte.
+
 ## Instalace TTS na Ubuntu
 
 Pro vyzkoušení výslovnosti přímo v editoru (tlačítka 🔊) potřebuje prohlížeč funkční systémový hlas. Na Ubuntu lze nainstalovat a otestovat takto:
@@ -119,3 +123,5 @@ espeak-ng -v cs "Toto je český test."
 
 espeak-ng --voices | grep -i czech
 ```
+
+Kvalita této syntézy na Ubuntu je bohužel velmi špatná, proto doporučuji ji vůbec nepoužívat.

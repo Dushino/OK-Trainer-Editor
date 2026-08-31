@@ -109,6 +109,10 @@ Text outside `{}` is read normally as regular speech. For longer runs written in
 
 So if you want to reliably and consistently hear the full spelling-alphabet words (e.g. "Delta Alpha", "David Adam"), the text must be wrapped in `{}`. Uppercase letters without `{}` (e.g. ABC) are spelled out by the device's TTS system (on Android as "ay bee cee") and may be spelled differently on other devices.
 
+## TTS on Windows
+
+Text-to-speech on Windows is at a much worse level than on Android. I don't recommend using it. If you have to, you'll likely need to adjust the texts so the pronunciation is intelligible. To do this, make a copy of the existing file (save it under a different name) and edit that copy.
+
 ## TTS installation on Ubuntu
 
 To try out pronunciation directly in the editor (the 🔊 buttons), the browser needs a working system voice. On Ubuntu it can be installed and tested like this:
@@ -121,3 +125,5 @@ espeak-ng -v cs "Toto je český test."
 
 espeak-ng --voices | grep -i czech
 ```
+
+Unfortunately, the quality of this synthesis on Ubuntu is very poor, so I recommend not using it at all.

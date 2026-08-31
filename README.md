@@ -37,7 +37,6 @@ A deck is identified by its **short name** and has a **language** set, in which 
 | Field | Meaning |
 |---|---|
 | **Krátký název balíčku** (Short deck name) | The deck's unique identifier (must be unique among the stored decks). Also used as the exported file's name. |
-| **Krátký název — text pro TTS** (Short name — TTS text) | Optional. If filled in, it is used instead of the short name when played back as speech (e.g. when the short name contains abbreviations that should be pronounced differently). Empty = the short name is used. |
 | **Popis balíčku** (Deck description) | The longer, readable name/description of the deck shown to the user in the trainer. |
 | **Popis — text pro TTS** (Description — TTS text) | Optional. Alternative text for playing the description as speech. Empty = the description above is used. |
 | **Jazyk balíčku (např. cs-CZ)** (Deck language) | The voice's language code used to read all text in the deck (outside of `{}` spans) — name, description, areas, subareas, and cards. Must match a language for which the system/browser has an installed voice (e.g. `cs-CZ`, `en-US`). |
@@ -100,7 +99,7 @@ Example with the ITU/NATO English alphabet selected:
 
 With the same text but the Czech spelling alphabet selected, `{DA-DR}` is read as "David Adam až David Rudolf".
 
-Text outside `{}` is read normally, in the voice matching the deck's language — the spelling alphabet does not apply to it. The `{}` marker works in every playable field: the deck's short name and description (and their TTS variants), the area/subarea name (and their TTS variants), and the card's front/back (and their TTS variants).
+Text outside `{}` is read normally, in the voice matching the deck's language — the spelling alphabet does not apply to it. The `{}` marker works in every playable field: the deck's description (and its TTS variant), the area/subarea name (and their TTS variants), and the card's front/back (and their TTS variants).
 
 If a character inside `{}` is not defined in the spelling alphabet (e.g. an unusual symbol), it is read out as written.
 
